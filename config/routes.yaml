@@ -1,0 +1,7 @@
+index:
+   path: /
+   controller: App\Controller\DefaultController::index
+
+club:
+   path: /club
+   controller: App\Controller\ClubController::club
