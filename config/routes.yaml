@@ -5,3 +5,11 @@ index:
 club:
    path: /club
    controller: App\Controller\ClubController::club
+
+equipement: 
+   path: /equipement
+   controller: App\Controller\EquipementController::equipement  
+
+nutrition: 
+   path: /nutrition
+   controller: App\Controller\NutritionController::nutrition
