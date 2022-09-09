@@ -13,3 +13,19 @@ equipement:
 nutrition: 
    path: /nutrition
    controller: App\Controller\NutritionController::nutrition
+
+panier:
+   path: /panier
+   controller: App\Controller\PanierController::panier
+
+compte:
+   path: /compte
+   controller: App\Controller\Comptecontroller::compte
+
+article_homme:
+   path: /homme
+   controller: App\Controller\HommeController::homme
+
+article_femme:
+   path: /femme
+   controller: App\Controller\FemmeController::femme

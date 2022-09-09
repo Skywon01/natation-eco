@@ -18,7 +18,7 @@
     </head>
     <body>
     
-    {% block header %}
+
     <header>
 
         <p id="fond_logo">
@@ -40,29 +40,29 @@
             <a class="nav" href="{{ path('nutrition') }}">Nutrition</a>
             <div>
                 <a  href=""><img class="icone" src="media/compte.png" alt="Mon compte"></a>
-                <a  href=""><img class="icone" src="media/panier.png" alt="Panier"></a>
+                <a  href="{{ path('panier') }}"><img class="icone" src="media/panier.png" alt="Panier"></a>
             </div>
         </nav>
+        
+        {#====================== Navbar sur le côté ========================#}
         <div id="nav_bar">
-            <a  href=""><img class="icone_nav_bar" src="media/club.png" alt="Club"></a>
+            <a  href="{{ path('club') }}"><img class="icone_nav_bar" src="media/club.png" alt="Club"></a>
             <hr class="hr">
-            <a  href=""><img class="icone_nav_bar" src="media/compte.png" alt="Mon compte"></a>
+            <a  href="{{ path('compte') }}"><img class="icone_nav_bar" src="media/compte.png" alt="Mon compte"></a>
             <hr class="hr">
-            <a  href=""><img class="icone_nav_bar" src="media/panier.png" alt="Panier"></a>
+            <a  href="{{ path('panier') }}"><img class="icone_nav_bar" src="media/panier.png" alt="Panier"></a>
         </div>
+        {#====================== Navbar sur le côté ========================#}
     </header>
-    {% endblock %}
-    {% block main %}
     <main>
-
+    {% block main %}{% endblock %}
     </main>
-    {% endblock %}
     <footer>
         <a href="{{ path('index') }}"><img id="logo_footer" src="media/logo.svg" alt="logo"></a>
         <hr>
         <p>&copy; natation-eco.fr 2022. – Tous droits réservés. – Mentions légales – Conditions générales – Gestion des cookies </p>
     </footer> 
 
-    </body>
     <link rel="stylesheet" href="{{ asset("js/script.js") }}">
+    </body>
 </html>
