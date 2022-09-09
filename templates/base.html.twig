@@ -32,14 +32,14 @@
             <ul class="nav" id="menu-accordeon">
                 <li><a href="#">Maillots de bain</a>
                 <ul>
-                    <li><a href="#">Homme</a></li>
-                    <li><a href="#">Femme</a></li>
+                    <li><a href="{{ path('homme') }}">Homme</a></li>
+                    <li><a href="{{ path('femme') }}">Femme</a></li>
                 </ul>
                 </li>
             </ul>
             <a class="nav" href="{{ path('nutrition') }}">Nutrition</a>
             <div>
-                <a  href=""><img class="icone" src="media/compte.png" alt="Mon compte"></a>
+                <a  href="{{ path('compte') }}"><img class="icone" src="media/compte.png" alt="Mon compte"></a>
                 <a  href="{{ path('panier') }}"><img class="icone" src="media/panier.png" alt="Panier"></a>
             </div>
         </nav>

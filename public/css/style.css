@@ -96,10 +96,10 @@ main{
 section{
     justify-content: center;
 }
-img{
+.accueil-img{
     transition: 0.3s;
 }
-main img:hover{
+.accueil-img:hover{
     filter: blur(2px);
     transform: scale(1.02);
 }
@@ -181,3 +181,16 @@ menu déroulant de merde que je ferai de toute façon en js*********************
   #menu-accordeon li:hover li {
     max-height: 15em;
   }
+
+
+
+  /*===== Style page Club =====*/
+
+.img-club{
+
+    width:40vw;
+}
+.article-club{
+    display: flex;
+    padding-bottom: 15vh;
+}

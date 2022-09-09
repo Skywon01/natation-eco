@@ -20,12 +20,12 @@ panier:
 
 compte:
    path: /compte
-   controller: App\Controller\Comptecontroller::compte
+   controller: App\Controller\CompteController::compte
 
-article_homme:
+homme:
    path: /homme
    controller: App\Controller\HommeController::homme
 
-article_femme:
+femme:
    path: /femme
    controller: App\Controller\FemmeController::femme
