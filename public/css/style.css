@@ -194,3 +194,33 @@ menu déroulant de merde que je ferai de toute façon en js*********************
     display: flex;
     padding-bottom: 15vh;
 }
+
+  /*===== Style page Article =====*/
+
+#ctn_art{
+    width: 50vw;
+    margin: auto;
+}
+#desc_art{
+    margin-bottom: 3vh;
+    margin-top: 3vh;
+}
+#img_article{
+    width:25vw;
+}
+#article{
+    text-align: left;
+    margin-left: 5vw;
+}
+#prix{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+#command{
+    margin:2em;
+    padding:1em;
+    margin-left: 0;
+    background-color: #23D2FA;
+    border-color: #707070;
+    border-radius: .3em;
+}
