@@ -32,67 +32,15 @@
 
 {# ==================================== Menu Déroulant ================================= #}
 
-             <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Maillots de bain <i class="fa fa-caret-down"></i></button>
-  <div id="myDropdown" class="dropdown-content">
-                <a href="{{ path('homme') }}">Homme</a>
-                <a href="{{ path('femme') }}">Femme</a>
-  </div>
-</div> 
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Maillots de bain <i class="fa fa-caret-down"></i></button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="{{ path('homme') }}">Homme</a>
+                    <a href="{{ path('femme') }}">Femme</a>
+                </div>
+            </div> 
 
-
-
-{# ==================================== Menu Déroulant ================================= #}
-
-
-
-
-{# 
-            <a href="#" id="toggle_button">Maillots de bain</a>
-            <div id="list">        
-                <a href="{{ path('homme') }}">Homme</a>
-                <a href="{{ path('femme') }}">Femme</a>
-            </div> #}
-
-            {# <ul class="nav" id="menu-accordeon">
-                <li><a href="#">Maillots de bain</a>  ===========Bouton
-                <ul>
-                    <li></li> ===========lien
-                    <li></li> ===========lien
-                </ul>
-                </li>
-            </ul> #}
-                        {# <a class="btn btn-navbar" id="btnMenu">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a> #}
-            {# <ul>
-                <li>Liste déroulante
-                
-            <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">CV</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-                </li>
-            </ul> #}
-{# 
-                <div id="menu">
-       <div class="menu" id="menu{postrow.displayed.U_POST_ID}" onclick="afficheMenu(this)">
-          Menu 1
-       </div>
-       <div id="sousmenu{postrow.displayed.U_POST_ID}" style="display:none">
-          <div class="sousmenu">
-                             <ul>
-                    <li><a href="{{ path('homme') }}">Homme</a></li>
-                    <li><a href="{{ path('femme') }}">Femme</a></li>
-                </ul>
-
-          </div>
-       </div>
-    </div> #}
+    {# ==================================== Menu Déroulant ================================= #}
 
             <a class="nav" href="{{ path('nutrition') }}">Nutrition</a>
             <div>
