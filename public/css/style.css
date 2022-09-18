@@ -150,37 +150,56 @@ section{
     color:var(--color-5);
 } 
 
+/*=====================Menu déroulant===============================*/
 
-/* 
-menu déroulant de merde que je ferai de toute façon en js**************************
-*/
+ /* Bouton */
+.dropbtn {
+    background-color: var(--nav);
+    color: white;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}
+  
+.dropbtn:hover, .dropbtn:focus {
+    background-color: var(--nav);
+}
+  
+  /* Positionnement du contenu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+  /* Contenu caché */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--nav);
+    min-width: 190px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+  /* Intérieur du contenu */
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+  /* Couleur du contenu au survol */
+.dropdown-content a:hover {
+    background-color: #494949;
+}
+  
+  /* Montre ou cache le contenu au clic */
+.show {
+    display:block;
+} 
 
-
-#menu-accordeon {
-    list-style:none;
-  }
-  #menu-accordeon ul {
-    padding:0;
-    margin:0;
-    list-style:none;
-    text-align: center;
-  }
-  #menu-accordeon li li {
-     max-height:0;
-     overflow: hidden;
-     transition: all .5s;
-     border-radius:0;
-     box-shadow: none;
-     border:none;
-     margin:0
-  }
-  #menu-accordeon ul li:last-child {
-     border-radius: 0 0 6px 6px;
-     border:none;
-  }
-  #menu-accordeon li:hover li {
-    max-height: 15em;
-  }
+/*=====================Menu déroulant======================*/
 
 
 
@@ -221,6 +240,16 @@ menu déroulant de merde que je ferai de toute façon en js*********************
     padding:1em;
     margin-left: 0;
     background-color: #23D2FA;
-    border-color: #707070;
-    border-radius: .3em;
+    border-color: #70707000;
+    border-radius: 2em;
+    box-shadow: #707070 5px 5px 5px;
+    transition-duration: 0.5s;
+    font-weight: bold;
+}
+#command:hover{
+    background-color: #189cb9;
+}
+#command:active{
+    transition-duration: 0.1s;
+    transform: scale(0.96);
 }
