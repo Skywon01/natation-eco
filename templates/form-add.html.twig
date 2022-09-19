@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Natation-eco{% endblock %}
+
+
+{% block main %}
+
+        <h1>Formulaire d'ajout d'un utilisateur</h1>
+    <div class="container">
+        <br>
+        {{ form_start(formUser) }}
+           <p>{{ form_row(formUser.name) }}</p> 
+           <p>{{ form_row(formUser.email) }}</p> 
+           <p>{{ form_row(formUser.password) }}</p> 
+
+            <button type="submit" value="Enregistrer" class="btn btn-primary">S'inscrire</button>
+        {{ form_end(formUser) }}
+    </div>
+
+{% endblock %}

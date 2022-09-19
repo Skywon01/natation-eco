@@ -5,10 +5,10 @@
         <title>{% block title %}Natation-eco{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        <link rel="shortcut icon" href={{ asset ("media/logo.svg") }} type="image/x-icon">
+        <link rel="shortcut icon" href={{ asset("media/logo.svg") }} type="image/x-icon">
         <link rel="stylesheet" href="{{ asset("js/script.js") }}">
 
-        <link rel="stylesheet" href={{ asset("css/style.css") }}>
+        <link rel="stylesheet" href="{{ asset("css/style.css") }}">
         {% block css %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -22,7 +22,7 @@
     <header>
 
         <p id="fond_logo">
-            <a href="{{ path('index') }}"><img id="logo" src="media/logo.svg" alt="logo"></a>
+            <a href="{{ path('index') }}"><img id="logo" src={{ asset ("media/logo.svg") }} alt="logo"></a>
             <a id="index" href="{{ path('index') }}">natation-eco.fr</a>
         </p>    
         <nav>
@@ -44,18 +44,18 @@
 
             <a class="nav" href="{{ path('nutrition') }}">Nutrition</a>
             <div>
-                <a  href="{{ path('compte') }}"><img class="icone" src="media/compte.png" alt="Mon compte"></a>
-                <a  href="{{ path('panier') }}"><img class="icone" src="media/panier.png" alt="Panier"></a>
+                <a  href="{{ path('compte') }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
+                <a  href="{{ path('panier') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
             </div>
         </nav>
         
         {#====================== Navbar sur le côté ========================#}
         <div id="nav_bar">
-            <a  href="{{ path('club') }}"><img class="icone_nav_bar" src="media/club.png" alt="Club"></a>
+            <a  href="{{ path('club') }}"><img class="icone_nav_bar" src={{ asset("media/club.png") }} alt="Club"></a>
             <hr class="hr">
-            <a  href="{{ path('compte') }}"><img class="icone_nav_bar" src="media/compte.png" alt="Mon compte"></a>
+            <a  href="{{ path('compte') }}"><img class="icone_nav_bar" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
             <hr class="hr">
-            <a  href="{{ path('panier') }}"><img class="icone_nav_bar" src="media/panier.png" alt="Panier"></a>
+            <a  href="{{ path('panier') }}"><img class="icone_nav_bar" src={{ asset("media/panier.png") }} alt="Panier"></a>
         </div>
         {#====================== Navbar sur le côté ========================#}
     </header>
@@ -64,7 +64,7 @@
     <script src="{{ asset("js/script.js") }}"></script>
     </main>
     <footer>
-        <a href="{{ path('index') }}"><img id="logo_footer" src="media/logo.svg" alt="logo"></a>
+        <a href="{{ path('index') }}"><img id="logo_footer" src={{ asset("media/logo.svg") }} alt="logo"></a>
         <hr>
         <p>&copy; natation-eco.fr 2022. – Tous droits réservés. – Mentions légales – Conditions générales – Gestion des cookies </p>
     </footer> 

@@ -245,6 +245,7 @@ section{
     box-shadow: #707070 5px 5px 5px;
     transition-duration: 0.5s;
     font-weight: bold;
+    font-size:1.2em;
 }
 #command:hover{
     background-color: #189cb9;
@@ -252,4 +253,14 @@ section{
 #command:active{
     transition-duration: 0.1s;
     transform: scale(0.96);
+}
+
+#ctn_compte{
+    width: 80vw;
+    margin: auto;
+}
+#img_compte{
+    width:15em;
+    height:15em;
+    border-radius: 50em;
 }
