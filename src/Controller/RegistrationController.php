@@ -30,11 +30,16 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            #Initialiser la date de création avec la date du jour
+
+            $user->setCreatedAt(new \DateTimeImmutable());
+            $user->setUpdatedAt(new \DateTimeImmutable());
+
             $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('index');
         }
 
         return $this->render('registration/register.html.twig', [
