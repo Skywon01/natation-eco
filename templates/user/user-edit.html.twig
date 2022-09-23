@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Natation-eco{% endblock %}
+
+
+{% block main %}
+    <h1>Modifier vos informations</h1>
+    <br>
+    {{ form_start(formUser) }}
+        <p>{{ form_row(formUser.name) }}</p> 
+        <p>{{ form_row(formUser.email) }}</p>  
+        <button type="submit" value="Enregistrer" class="btn btn-primary">Modifier</button>
+    {{ form_end(formUser) }}
+{% endblock %}

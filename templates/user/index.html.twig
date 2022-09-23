@@ -5,7 +5,36 @@
 
 
 {% block main %}
+    <h1>Mon compte</h1>
+    {# {% for user in user %} #}
+    <section class="container" id="ctn_compte">
+    <img id="img_compte" src="{{ asset('media/compte/profil_default.jpg') }}" alt="">
 
-<h1>Coucou les users</h1>
+    <article id="article">
+    <h2>Bonjour {{ user.name }}</h2>
+
+    <h3 id="desc_art">Vos informations</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quos.</p>
+
+    <h3 id="desc_art">Nom</h3>
+    <p>{{ user.name }}</p>
+
+    <h3 id="desc_art">Mail</h3>
+    <p>{{ user.email }}</p>
+
+    <h3 id="desc_art">Adresse</h3>
+    <p>Rue</p>
+    <p>Ville</p>
+    <p>Tel</p>
+    
+    <a href="{{ path('user_edit',{id: app.user.id}) }}"> 
+    <button type="submit" id="command">Modifier mes informations</button>
+    </a>
+    </article>
+
+    </section>
+
+    {# {% endfor %} #}
 
 {% endblock %}
+

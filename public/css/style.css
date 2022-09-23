@@ -134,20 +134,20 @@ section{
     flex-direction: column;
     background-color: var(--color-5); 
 }
-.icone_nav_bar{
-    width:45px;
-    height:45px;
+#icone_nav_bar{
+    width:45px !important;
+    height:45px !important;
     transition: transform .3s;
-    padding-top: 1vh;
-    padding-right: 1.2vw;
+    padding-top: 1vh !important;
+    padding-right: 1.2vw; 
     padding-bottom: 1.5vh;
     padding-top:1.5vh;
 }
-.icone_nav_bar:hover{
+#icone_nav_bar:hover{
     transform: scale(1.3);
 } 
-.hr{
-    color:var(--color-5);
+#hr{
+    color:var(--color-5) !important;
 } 
 
 /*=====================Menu déroulant===============================*/

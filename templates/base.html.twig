@@ -4,11 +4,14 @@
         <meta charset="UTF-8">
         <title>{% block title %}Natation-eco{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+        
         <link rel="shortcut icon" href={{ asset("media/logo.svg") }} type="image/x-icon">
+        
         <link rel="stylesheet" href="{{ asset("js/script.js") }}">
 
-        <link rel="stylesheet" href="{{ asset("css/style.css") }}">
         {% block css %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -30,7 +33,7 @@
             <a class="nav" href="{{ path('equipement') }}">Equipements</a>
 
 
-{# ==================================== Menu Déroulant ================================= #}
+        {# ==================================== Menu Déroulant ================================= #}
 
             <div class="dropdown">
                 <button onclick="myFunction()" class="dropbtn">Maillots de bain <i class="fa fa-caret-down"></i></button>
@@ -40,28 +43,44 @@
                 </div>
             </div> 
 
-    {# ==================================== Menu Déroulant ================================= #}
+        {# ==================================== Menu Déroulant ================================= #}
 
             <a class="nav" href="{{ path('nutrition') }}">Nutrition</a>
-            <div>
-                <a  href="{{ path('compte') }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
-                <a  href="{{ path('panier') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
-            </div>
+            
+            {% if is_granted('ROLE_USER') %}
+                <div>
+                    <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
+                    <a  href="{{ path('panier') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
+                </div>
+            {% else %}
+                <div>
+                    <a  href="{{ path('app_login') }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
+                    <a  href="{{ path('panier') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
+                </div>
+            {% endif %}
         </nav>
-        
         {#====================== Navbar sur le côté ========================#}
+        
         <div id="nav_bar">
-            <a  href="{{ path('club') }}"><img class="icone_nav_bar" src={{ asset("media/club.png") }} alt="Club"></a>
-            <hr class="hr">
-            <a  href="{{ path('compte') }}"><img class="icone_nav_bar" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
-            <hr class="hr">
-            <a  href="{{ path('panier') }}"><img class="icone_nav_bar" src={{ asset("media/panier.png") }} alt="Panier"></a>
+            <a  href="{{ path('club') }}"><img id="icone_nav_bar" src={{ asset("media/club.png") }} alt="Club"></a>
+            <hr>
+            {% if is_granted('ROLE_USER') %}
+            <a  href="{{ path('user_show',{id: app.user.id}) }}"><img id="icone_nav_bar" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
+            {% else %}
+            <a  href="{{ path('app_login') }}"><img id="icone_nav_bar" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
+            {% endif %}
+            <hr>
+            <a  href="{{ path('panier') }}"><img id="icone_nav_bar" src={{ asset("media/panier.png") }} alt="Panier"></a>
         </div>
+
         {#====================== Navbar sur le côté ========================#}
     </header>
+
     <main>
     {% block main %}{% endblock %}
     <script src="{{ asset("js/script.js") }}"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     </main>
     <footer>
         <a href="{{ path('index') }}"><img id="logo_footer" src={{ asset("media/logo.svg") }} alt="logo"></a>

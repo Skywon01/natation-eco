@@ -8,6 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\MakerBundle\Maker\MakeRegistrationForm;
+use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,15 +35,13 @@ public function show($id, ManagerRegistry $doctrine)
 {
     $user = $doctrine->getRepository(User::class)->find($id);
 
-    if($user)
-    {
-        throw new \Exception($id." : Utilisateur inconnu");
-    }
 
-    return $this->render('user/show.html.twig',[
+    return $this->render('user/index.html.twig',[
         'user' => $user
     ]);
 }
+
+
 
 /**
  * @Route("/user/add", name="user_add")
@@ -80,6 +79,40 @@ public function add(Request $request, UserPasswordHasherInterface $userPasswordH
     ]);
 
 }
+
+/**
+ * @Route("/user/edit/{id}", name="user_edit")
+ */
+public function edit($id, ManagerRegistry $doctrine, Request $request): Response
+{
+    $user = $doctrine->getRepository(User::class)->find($id);
+
+
+    if(!$user)
+    {
+        throw new \Exception("Pour d'utilisateur pour cet ID : $id");
+    }
+
+    $user->setUpdatedAt(new \DateTimeImmutable());
+    
+    $formUser = $this->createForm(UserType::class, $user);
+    $formUser->handleRequest($request);
+
+    if($formUser->isSubmitted() && $formUser->isValid())
+    {
+        $em = $doctrine->getManager();
+        $em->flush();
+
+        $this->addFlash("user_edit_ok", "Votre utilisateur ".$user->getName()." a bien été modifié !");
+
+        return $this->redirectToRoute('index');
+    }
+
+    return $this->render('user/user-edit.html.twig', [
+        'formUser' => $formUser->createView()
+    ]);
+}
+
 
 
 }
