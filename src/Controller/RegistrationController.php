@@ -39,6 +39,8 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
             // do anything else you need here, like send an email
 
+            $this->addFlash('user_add_success', "L'utilisateur ".$user->getName()." a bien été ajouté.");
+
             return $this->redirectToRoute('index');
         }
 

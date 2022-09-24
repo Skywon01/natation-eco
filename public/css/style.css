@@ -27,7 +27,7 @@ h1{
     background-color: white;
     width: 60vw;
     background: linear-gradient(to right, white, rgb(255, 255, 255, 0));
-    padding-bottom: 2em;
+    /* padding-bottom: 2em; */
     display: flex;
     flex-direction: column;
 
@@ -135,13 +135,12 @@ section{
     background-color: var(--color-5); 
 }
 #icone_nav_bar{
-    width:45px !important;
-    height:45px !important;
+    width:65px !important;
+    height:65px !important;
     transition: transform .3s;
     padding-top: 1vh !important;
     padding-right: 1.2vw; 
     padding-bottom: 1.5vh;
-    padding-top:1.5vh;
 }
 #icone_nav_bar:hover{
     transform: scale(1.3);

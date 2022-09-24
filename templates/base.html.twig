@@ -61,7 +61,7 @@
         </nav>
         {#====================== Navbar sur le côté ========================#}
         
-        <div id="nav_bar">
+        <div id="nav_bar" class="list-unstyled">
             <a  href="{{ path('club') }}"><img id="icone_nav_bar" src={{ asset("media/club.png") }} alt="Club"></a>
             <hr>
             {% if is_granted('ROLE_USER') %}
