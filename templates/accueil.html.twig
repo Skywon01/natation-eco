@@ -9,6 +9,13 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         {% endfor %} 
+        {% for message in app.flashes('user_delete_ok') %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Félicitation !</strong> {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+
         <h1>Bienvenue sur natation-eco.fr</h1>
         <section>
             <article>

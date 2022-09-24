@@ -103,7 +103,7 @@ public function edit($id, ManagerRegistry $doctrine, Request $request): Response
         $em = $doctrine->getManager();
         $em->flush();
 
-        $this->addFlash("user_edit_ok", "Votre utilisateur ".$user->getName()." a bien été modifié !");
+        $this->addFlash("user_edit_ok", "Vos données ont bien été modifiées !");
 
         return $this->redirectToRoute('index');
     }
@@ -112,6 +112,27 @@ public function edit($id, ManagerRegistry $doctrine, Request $request): Response
         'formUser' => $formUser->createView()
     ]);
 }
+
+    /**
+     * @Route("user/delete/{id}", name="user_delete")
+     */
+    public function delete($id, ManagerRegistry $doctrine)
+    {
+        $user = $doctrine->getRepository(User::class)->find($id);
+
+        if(!$user)
+        {
+            throw new \Exception("Aucun utilisateur pour l'id : $id");
+        }
+
+        $em = $doctrine->getManager();
+        $em->remove($user);
+        $em->flush();
+
+        $this->addFlash("user_delete_ok", "L'utilisateur ".$user->getName()." a bien été supprimé !");
+
+        return $this->redirectToRoute('index');
+    }
 
 
 
