@@ -25,35 +25,44 @@
         <section>
             <article>
                 <p class="contenant">
-                    <a href=""><img src="media/club.jpg" alt="le club" class="accueil-img"></a>
+                    <a href="{{ path('club') }}"><img src={{ asset("media/club.jpg")}} alt="le club" class="accueil-img"></a>
                     <a class="texte_centrer" href="">Le club</a>
                 </p>
             </article>
         </section>
         <section>
             <p class="contenant">
-                <a href=""><img src="media/article-femme.jpg" alt="maillots de bain femme" class="accueil-img"></a>
+                <a href="{{ path('femme')}}"><img src={{ asset("media/article-femme.jpg")}} alt="maillots de bain femme" class="accueil-img"></a>
                 <a class="texte_centrer" href="">Maillots de bain femme</a>
             </p>
             <p class="contenant">
-                <a href=""><img src="media/article-homme.jpg" alt="maillots de bain homme" class="accueil-img"></a>
+                <a href="{{ path('homme')}}"><img src={{ asset("media/article-homme.jpg")}} alt="maillots de bain homme" class="accueil-img"></a>
                 <a class="texte_centrer" href="">Maillots de bain homme</a>
             </p>
         </section>
         <section>
             <p class="contenant">
-                <a href=""><img src="media/nutrition.jpg" alt="nutrition" class="accueil-img"></a>
+                <a href="{{ path('nutrition')}}"><img src={{ asset("media/nutrition.jpg")}} alt="nutrition" class="accueil-img"></a>
                 <a class="texte_centrer" href="">Nutrition</a>
             </p>
             <p class="contenant">
-                <a href=""><img src="media/equipement.jpg" alt="equipement" class="accueil-img"></a>
+                <a href="{{ path('equipement')}}"><img src={{ asset("media/equipement.jpg")}} alt="equipement" class="accueil-img"></a>
                 <a class="texte_centrer" href="">Equipement</a>
             </p>
         </section>
         <hr>
+            <h3 class="mt-5">Ces articles pourraient vous intéresser</h3>
         <section>
             <hr>
-            <p>Ces articles pourraient vous intéresser</p>
         </section>
+            <aside id="carousel" class="carousel mb-5" data-flickity='{ "autoPlay": true, "wrapAround": true, "autoPlay": true }'>
+
+                    <img src={{ asset("media/Article_femme/maillot_1.jpg")}}  alt="Maillot 1">
+
+                    <img src={{ asset("media/Article_femme/maillot_2.jpg")}}  alt="Maillot 2">
+
+                    <img src={{ asset("media/Article_femme/maillot_3.jpg")}}  alt="Maillot 3">
+
+            </aside>
     </main>
 {% endblock %}
