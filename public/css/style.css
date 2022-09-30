@@ -78,7 +78,6 @@ nav{
 div{
     display:flex;
     justify-content: space-around;
-
 }
 div a{
     padding-left:1em;
@@ -265,4 +264,27 @@ section{
 }
 
 
+/* ==================== Style carousel ==================== */
 
+.carousel-cell{
+    height:40vh;
+}
+
+/* big buttons, no circle */
+.flickity-prev-next-button {
+    width: 100px;
+    height: 100px;
+    background: transparent;
+  }
+  /* arrow color */
+  .flickity-prev-next-button .arrow {
+    fill: #D23CFA;
+  }
+  /* .flickity-prev-next-button.no-svg {
+    color: #D23CFA;
+  } */
+
+  .flickity-prev-next-button:hover {
+    background: blue;
+  }
+  
