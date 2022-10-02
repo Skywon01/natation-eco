@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductsController!{% endblock %}
+
+{% block body %}
+
+{% block main %}
+
+<aside class="container">
+
+
+    {{ form_start(formProducts) }}
+         {{ form_row(formProducts.name) }}
+            {{ form_row(formProducts.price) }}
+            {{ form_row(formProducts.description) }}
+    <input type="submit" class="btn btn-primary btn-lg">       
+    {{ form_end(formProducts)}}
+
+</aside>
+
+{% endblock %}
+{% endblock %}
