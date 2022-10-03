@@ -27,7 +27,8 @@ h1{
     background-color: white;
     width: 60vw;
     background: linear-gradient(to right, white, rgb(255, 255, 255, 0));
-    /* padding-bottom: 2em; */
+    padding-bottom: 3em;
+    margin-bottom: -2em;
     display: flex;
     flex-direction: column;
 
@@ -127,6 +128,9 @@ section{
 #logo_footer{
     width:9vw;
 }
+
+/* ====================Barre latérale fixe===================== */
+
 #nav_bar{
     position: fixed;
     display:flex;
@@ -147,6 +151,8 @@ section{
 #hr{
     color:var(--color-5) !important;
 } 
+
+/* ====================Barre latérale fixe===================== */
 
 /*=====================Menu déroulant===============================*/
 
@@ -201,7 +207,7 @@ section{
 
 
 
-  /*===== Style page Club =====*/
+/*===================== Style page Club ==================*/
 
 .img-club{
 
@@ -212,7 +218,7 @@ section{
     padding-bottom: 15vh;
 }
 
-  /*===== Style page Article =====*/
+  /*================ Style page Article===================*/
 
 #ctn_art{
     width: 50vw;
@@ -236,7 +242,7 @@ section{
 #command{
     margin:2em;
     padding:1em;
-    margin-left: 0;
+    /* margin-left: 0; */
     background-color: #23D2FA;
     border-color: #70707000;
     border-radius: 2em;
@@ -267,7 +273,8 @@ section{
 /* ==================== Style carousel ==================== */
 
 .carousel-cell{
-    height:40vh;
+    margin-right: 1vw;
+    overflow: hidden;
 }
 
 /* big buttons, no circle */
@@ -280,11 +287,8 @@ section{
   .flickity-prev-next-button .arrow {
     fill: #D23CFA;
   }
-  /* .flickity-prev-next-button.no-svg {
-    color: #D23CFA;
-  } */
-
   .flickity-prev-next-button:hover {
     background: blue;
   }
-  
+
+  /* ==================== Style carousel ==================== */

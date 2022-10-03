@@ -44,8 +44,8 @@
 
         {# ==================================== Menu Déroulant ================================= #}
 
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Maillots de bain <i class="fa fa-caret-down"></i></button>
+            <div class="dropdown" >
+                <button onclick="myFunction()" class="dropbtn">Maillots de bain</button>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="{{ path('homme') }}">Homme</a>
                     <a href="{{ path('femme') }}">Femme</a>
@@ -60,16 +60,14 @@
                 <div>
                     <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
                     <a  href="{{ path('panier') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
+            {% if is_granted('ROLE_ADMIN') %}
+                    <a  href="{{ path('app_admin') }}"><img class="icone" src={{ asset("media/admin.svg") }} alt="Mon compte"></a>
+            {% endif %}
                 </div>
             {% else %}
                 <div>
                     <a  href="{{ path('app_login') }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
                     <a  href="{{ path('panier') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
-                </div>
-            {% endif %}
-            {% if is_granted('ROLE_ADMIN') %}
-                <div>
-                    <a  href="{{ path('app_login') }}"><img class="icone" src={{ asset("media/admin.svg") }} alt="Mon compte"></a>
                 </div>
             {% endif %}
         </nav>
