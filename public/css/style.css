@@ -247,7 +247,7 @@ section{
     border-color: #70707000;
     border-radius: 2em;
     box-shadow: #707070 5px 5px 5px;
-    transition-duration: 0.5s;
+    transition-duration: 0.1s;
     font-weight: bold;
     font-size:1.2em;
 }
@@ -281,14 +281,10 @@ section{
 .flickity-prev-next-button {
     width: 100px;
     height: 100px;
-    background: transparent;
+    /* background: transparent; */
   }
   /* arrow color */
   .flickity-prev-next-button .arrow {
     fill: #D23CFA;
   }
-  .flickity-prev-next-button:hover {
-    background: blue;
-  }
-
   /* ==================== Style carousel ==================== */

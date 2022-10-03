@@ -22,6 +22,8 @@ class ProductsController extends AbstractController
     }
 
 
+    // Create
+    
     #[Route('/products/add', name: 'app_products_add')]
     public function add(Request $request, ManagerRegistry $doctrine): Response
 {   
@@ -46,5 +48,21 @@ class ProductsController extends AbstractController
     ]);
 }
 
+
+// Read
+
+/**
+ * @Route("products/show/{id}", name="products_show")
+ */
+public function show($id, ManagerRegistry $doctrine)
+{
+    $products = $doctrine->getRepository(Products::class)->find($id);
+
+    // A modifier pour rendre sur la page détails
+
+    return $this->render('article_femme.html.twig',[
+        'products' => $products
+    ]);
+}
 
 }

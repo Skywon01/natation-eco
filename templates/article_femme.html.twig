@@ -6,17 +6,18 @@
 <h1>Articles femmes</h1>
 
 
+{% for products in products %}
 
 <section class="container" id="ctn_art">
 
 <img id="img_article" src="{{ asset('media/article_femme/model_f_default.jpg') }}" alt="">
 
 <article id="article">
-<h2>Maillot de bain femme</h2>
+<h2>{{ products.name }}</h2>
 <h3 id="desc_art">Description du produit</h3>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam libero numquam consequatur nulla, fugiat ipsum eum? Quasi quam iure tempore sequi unde eos pariatur in?</p>
+<p>{{ products.description}}</p>
 <h3 id="prix">Prix</h3>
-<p>50€</p>
+<p>{{ products.price }}</p>
 
 <button type="submit" id="command">Ajouter au panier</button>
 </article>
@@ -24,6 +25,7 @@
 
 
 </section>
+{% endfor %}
 
 
 {% endblock %}
