@@ -5,13 +5,22 @@ namespace App\Entity;
 use App\Repository\ProductsRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 #[ORM\Entity(repositoryClass: ProductsRepository::class)]
+/**
+ * @Vich\Uploadable
+ */
 class Products
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+
+
+
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
@@ -22,6 +31,16 @@ class Products
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $imageName = null;
+
+    /**
+     * @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName")
+     * @var File|null
+     */
+    private $imageFile;
+
 
     public function getId(): ?int
     {
@@ -63,4 +82,29 @@ class Products
 
         return $this;
     }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function setImageName(string $imageName): self
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(?File $imageFile = null): self
+    {
+        $this->imageFile = $imageFile;
+
+        return $this;
+    }
+
 }
