@@ -41,7 +41,6 @@ class Products
      */
     private $imageFile;
 
-
     public function getId(): ?int
     {
         return $this->id;

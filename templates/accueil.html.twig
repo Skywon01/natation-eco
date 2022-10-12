@@ -64,61 +64,17 @@
         </section>
             <aside id="carousel" class="carousel mb-5" data-flickity='{ "autoPlay": true, "wrapAround": true, "autoPlay": true, "cellAlign": "left", "contain": true }'>
 
-                <aside class="card carousel-cell" style="width: 18rem;">
-                    <img src="{{ asset("media/Article_femme/maillot_1.jpg")}}" class="card-img-top" alt="...">
-                    <aside class="card-body">
-                        <h5 class="card-title">Maillot SPEEDO</h5>
-                        <p>Prix : 35€</p>
-                        <a href="#" class="btn btn-primary">Détails</a>
-                    </aside>
-                </aside>
+                {% for products in products %}
 
                 <aside class="card carousel-cell" style="width: 18rem;">
-                    <img src="{{ asset("media/Article_femme/maillot_2.jpg")}}" class="card-img-top" alt="...">
+                    <img src={{ asset("uploads/")}}{{ products.imageName }} class="card-img-top" alt="image d'article">
                     <aside class="card-body">
-                        <h5 class="card-title">Maillot SPEEDO</h5>
-                        <p>Prix : 35€</p>
-                        <a href="#" class="btn btn-primary">Détails</a>
-                    </aside>
+                        <h5 class="card-title">{{ products.name}}</h5>
+                        <p>Prix : {{ products.price }} €</p>
+                        <a href="{{ path('products_show', {id: products.id}) }}" class="btn btn-primary">Détails</a>
+                    </aside> 
                 </aside>
 
-                <aside class="card carousel-cell" style="width: 18rem;">
-                    <img src="{{ asset("media/Article_femme/maillot_3.jpg")}}" class="card-img-top" alt="...">
-                    <aside class="card-body">
-                        <h5 class="card-title">Maillot SPEEDO</h5>
-                        <p>Prix : 35€</p>
-                        <a href="#" class="btn btn-primary">Détails</a>
-                    </aside>
-                </aside>
-
-                <aside class="card carousel-cell" style="width: 18rem;">
-                    <img src="{{ asset("media/Article_femme/maillot_1.jpg")}}" class="card-img-top" alt="...">
-                    <aside class="card-body">
-                        <h5 class="card-title">Maillot SPEEDO</h5>
-                        <p>Prix : 35€</p>
-                        <a href="#" class="btn btn-primary">Détails</a>
-                    </aside>
-                </aside>
-
-                <aside class="card carousel-cell" style="width: 18rem;">
-                    <img src="{{ asset("media/Article_femme/maillot_2.jpg")}}" class="card-img-top" alt="...">
-                    <aside class="card-body">
-                        <h5 class="card-title">Maillot SPEEDO</h5>
-                        <p>Prix : 35€</p>
-                        <a href="#" class="btn btn-primary">Détails</a>
-                    </aside>
-                </aside>
-
-                <aside class="card carousel-cell" style="width: 18rem;">
-                    <img src="{{ asset("media/Article_femme/maillot_3.jpg")}}" class="card-img-top" alt="...">
-                    <aside class="card-body">
-                        <h5 class="card-title">Maillot SPEEDO</h5>
-                        <p>Prix : 35€</p>
-                        <a href="#" class="btn btn-primary">Détails</a>
-                    </aside>
-                </aside>
-
-
-            </aside>
+                {% endfor %}
     </main>
 {% endblock %}
