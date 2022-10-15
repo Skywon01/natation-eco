@@ -6,19 +6,20 @@
     <h1>Articles Hommes</h1>
 
 
+    {% for product in product %}
 
-    <div class="card m-auto mb-5 mt-5" style="width: 30rem;">
-    <img src={{ asset("media/article-homme.jpg") }} class="card-img-top" alt="article homme">
-    <aside class="card-body">
-        <h5 class="card-title">Maillot de bain</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary btn-lg">Commander</a>
-    </aside>
-    </div>
+                <aside class="card carousel-cell" style="width: 18rem;">
+                    <img src={{ asset("uploads/")}}{{ product.imageName }} class="card-img-top" alt="image d'article">
+                    <aside class="card-body">
+                        <h5 class="card-title">{{ product.name}}</h5>
+                        <p>Prix : {{ product.price }} €</p>
+                        <a href="{{ path('products_show', {id: product.id}) }}" class="btn btn-primary">Détails</a>
+                    </aside> 
+                </aside>
 
 
 
-    </section>
+    {% endfor %}
 
 
 {% endblock %}
