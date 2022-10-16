@@ -2,21 +2,25 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Products;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class HommeController extends AbstractController
 {
-
-    public function homme(ManagerRegistry $doctrine)
+    
+    #[Route('hommes/{id}', name: 'homme_show')]
+    public function homme($id, ManagerRegistry $doctrine): Response
     {
-        
-        $product = $doctrine->getRepository(Products::class)->findAll();
-
+        $category = $doctrine->getRepository(Category::class)->find($id);
+        $products = $category->getProducts();
         return $this->render("article_homme.html.twig", [
 
-            'product' => $product
+            'product' => $products,
+            'category' => $category
         ]);
     }
 }

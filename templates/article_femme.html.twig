@@ -7,7 +7,19 @@
 
 
 
-<section class="container" id="ctn_art">
+    {% for product in product %}
+                <aside class="card carousel-cell" style="width: 18rem;">
+                    <img src={{ asset("uploads/")}}{{ product.imageName }} class="card-img-top" alt="image d'article">
+                    <aside class="card-body">
+                        <h5 class="card-title">{{ product.name}}</h5>
+                        <p>Prix : {{ product.price }} €</p>
+                        <a href="{{ path('products_show', {id: product.id}) }}" class="btn btn-primary">Détails</a>
+                    </aside> 
+                </aside>
+    {% endfor %}
+
+
+{# <section class="container" id="ctn_art">
 
 <img id="img_article" src={{ asset("uploads/")}}{{ products.imageName }} alt="">
 
@@ -23,7 +35,7 @@
 
 
 
-</section>
+</section> #}
 
 
 {% endblock %}

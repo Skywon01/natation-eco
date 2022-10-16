@@ -60,7 +60,7 @@ public function show($id, ManagerRegistry $doctrine)
 
     // A modifier pour rendre sur la page détails
 
-    return $this->render('article_femme.html.twig',[
+    return $this->render('details/details.html.twig',[
         'products' => $products
     ]);
 }

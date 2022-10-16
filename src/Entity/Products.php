@@ -42,7 +42,7 @@ class Products
     private $imageFile;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
-    private ?category $Category = null;
+    private ?Category $Category = null;
 
     public function getId(): ?int
     {
@@ -109,12 +109,12 @@ class Products
         return $this;
     }
 
-    public function getCategory(): ?category
+    public function getCategory(): ?Category
     {
         return $this->Category;
     }
 
-    public function setCategory(?category $Category): self
+    public function setCategory(?Category $Category): self
     {
         $this->Category = $Category;
 

@@ -7,7 +7,6 @@
 
 
     {% for product in product %}
-
                 <aside class="card carousel-cell" style="width: 18rem;">
                     <img src={{ asset("uploads/")}}{{ product.imageName }} class="card-img-top" alt="image d'article">
                     <aside class="card-body">
@@ -16,9 +15,6 @@
                         <a href="{{ path('products_show', {id: product.id}) }}" class="btn btn-primary">Détails</a>
                     </aside> 
                 </aside>
-
-
-
     {% endfor %}
 
 
