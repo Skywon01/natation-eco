@@ -3,30 +3,47 @@
 
     {% block main %}
     <main>
+       
+        {# Flashes utilisateurs #}
+
         {% for message in app.flashes('user_edit_ok') %}
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Félicitation !</strong> {{ message }}
+            <strong>Félicitations !</strong> {{ message }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        {% endfor %} 
+        {% endfor %}
+
         {% for message in app.flashes('user_delete_ok') %}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Félicitation !</strong> {{ message }}
+                <strong>Félicitations !</strong> {{ message }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         {% endfor %}
+
         {% for message in app.flashes('user_add_success') %}
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Félicitation !</strong> {{ message }}
+                <strong>Félicitations !</strong> {{ message }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         {% endfor %}
+
+
+        {#  Flashes produits #}
+
         {% for message in app.flashes('products_add_success') %}
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Félicitation !</strong> {{ message }}
+                <strong>Félicitations !</strong> {{ message }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         {% endfor %}
+
+        {% for message in app.flashes('product_edit_success') %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Félicitations !</strong> {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+
 
         <h1>Bienvenue sur natation-eco.fr</h1>
         <section>
@@ -39,22 +56,22 @@
         </section>
         <section>
             <p class="contenant">
-                <a href="{{ path('femme')}}"><img src={{ asset("media/article-femme.jpg")}} alt="maillots de bain femme" class="accueil-img"></a>
-                <a class="texte_centrer" href="">Maillots de bain femme</a>
+                <a href="{{ path('femme_show', {id: 2}) }}"><img src={{ asset("media/article-femme.jpg")}} alt="maillots de bain femme" class="accueil-img"></a>
+                <a class="texte_centrer" href="{{ path('femme_show', {id: 2}) }}">Maillots de bain femme</a>
             </p>
             <p class="contenant">
-                <a href="{{ path('homme')}}"><img src={{ asset("media/article-homme.jpg")}} alt="maillots de bain homme" class="accueil-img"></a>
-                <a class="texte_centrer" href="">Maillots de bain homme</a>
+                <a href="{{ path('homme_show', {id: 1}) }}"><img src={{ asset("media/article-homme.jpg")}} alt="maillots de bain homme" class="accueil-img"></a>
+                <a class="texte_centrer" href="{{ path('homme_show', {id: 1}) }}">Maillots de bain homme</a>
             </p>
         </section>
         <section>
             <p class="contenant">
-                <a href="{{ path('nutrition')}}"><img src={{ asset("media/nutrition.jpg")}} alt="nutrition" class="accueil-img"></a>
-                <a class="texte_centrer" href="">Nutrition</a>
+                <a href="{{ path('nutrition_show',{id: 3}) }}"><img src={{ asset("media/nutrition.jpg")}} alt="nutrition" class="accueil-img"></a>
+                <a class="texte_centrer" href="{{ path('nutrition_show',{id: 3}) }}">Nutrition</a>
             </p>
             <p class="contenant">
-                <a href="{{ path('equipement')}}"><img src={{ asset("media/equipement.jpg")}} alt="equipement" class="accueil-img"></a>
-                <a class="texte_centrer" href="">Equipement</a>
+                <a href="{{ path('equipement_show', {id:4}) }}"><img src={{ asset("media/equipement.jpg")}} alt="equipement" class="accueil-img"></a>
+                <a class="texte_centrer" href="{{ path('equipement_show', {id:4}) }}">Equipement</a>
             </p>
         </section>
         <hr>

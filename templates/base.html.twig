@@ -39,7 +39,7 @@
         </p>    
         <nav>
             <a class="nav" href="{{ path('club') }}">Le club</a>
-            <a class="nav" href="{{ path('equipement') }}">Equipements</a>
+            <a class="nav" href="{{ path('equipement_show', {id:4}) }}">Equipements</a>
 
 
         {# ==================================== Menu Déroulant ================================= #}
@@ -54,7 +54,7 @@
 
         {# ==================================== Menu Déroulant ================================= #}
 
-            <a class="nav" href="{{ path('nutrition') }}">Nutrition</a>
+            <a class="nav" href="{{ path('nutrition_show',{id: 3}) }}">Nutrition</a>
             
             {% if is_granted('ROLE_USER') %}
                 <div>

@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Natation-eco{% endblock %}
+
+
+{% block main %}
+    <h1>Modifier le produit</h1>
+    <br>
+
+    <div class="container">
+    {{ form_start(formProducts) }}
+         {{ form_row(formProducts.name) }}
+            {{ form_row(formProducts.price) }}
+            {{ form_row(formProducts.description) }}
+            {{ form_row(formProducts.category) }}
+            {{ form_row(formProducts.imageFile)}}
+    <input type="submit" id="command">       
+    {{ form_end(formProducts)}}
+    </div>
+{% endblock %}

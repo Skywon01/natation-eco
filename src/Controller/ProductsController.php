@@ -58,11 +58,80 @@ public function show($id, ManagerRegistry $doctrine)
 {
     $products = $doctrine->getRepository(Products::class)->find($id);
 
-    // A modifier pour rendre sur la page détails
-
     return $this->render('details/details.html.twig',[
         'products' => $products
     ]);
 }
+
+
+//Read All
+
+/**
+ * @Route("products/show_all", name="products_show_all")
+ */
+public function showAll(ManagerRegistry $doctrine)
+{
+    $products = $doctrine->getRepository(Products::class)->findAll();
+
+    return $this->render('products/products_admin.html.twig',[
+        'products' => $products
+    ]);
+}
+
+
+
+// Update
+
+/**
+ * @Route("/product/edit/{id} ", name="app_products_edit")
+ */
+public function edit($id, ManagerRegistry $doctrine, Request $request): Response
+{
+    $product = $doctrine->getRepository(Products::class)->find($id);
+
+
+
+    
+    $formProducts = $this->createForm(ProductsType::class, $product);
+    $formProducts->handleRequest($request);
+
+    if($formProducts->isSubmitted() && $formProducts->isValid())
+    {
+        $em = $doctrine->getManager();
+        $em->flush();
+
+        $this->addFlash("product_edit_success", "Votre produit a bien été modifié!");
+
+        return $this->redirectToRoute('index');
+    }
+
+    return $this->render('products/products_edit.html.twig', [
+        'formProducts' => $formProducts->createView(),
+        'product' => $product
+    ]);
+}
+
+// Delete
+
+    /**
+     * @Route("user/delete/{id}", name="user_delete")
+     */
+    public function delete($id, ManagerRegistry $doctrine)
+    {
+        $user = $doctrine->getRepository(User::class)->find($id);
+
+        if(!$user)
+        {
+            throw new \Exception("Aucun utilisateur pour l'id : $id");
+        }
+
+        $em = $doctrine->getManager();
+        $em->remove($user);
+        $em->flush();
+
+        $this->addFlash("user_delete_ok", "L'utilisateur ".$user->getName()." a bien été supprimé !");
+
+        return $this->redirectToRoute('index');
+    }
 
 }
