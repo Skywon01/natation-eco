@@ -32,6 +32,7 @@
     <a href="{{ path('user_delete',{id: app.user.id}) }}" id="command" style="text-transform: lowercase; text-transform: capitalize;" onclick="return confirm('Etes-vous sûr de vouloir supprimer votre compte (cette action est irréversible)?');"> 
     Supprimer votre compte
     </a>
+    <a href="{{ path('app_forgot_password_request',{id: app.user.id}) }}" id="command" style="text-transform: lowercase; text-transform: capitalize;">Modifier votre mot de passe</a>
 
     
     </div>
