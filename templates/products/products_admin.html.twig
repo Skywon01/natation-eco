@@ -4,42 +4,20 @@
 
 
 {% block main %}
-    <h1>Modifier le produit</h1>
-    <br>
-    
-                {% for products in products %}
+    <h1 class="mb-5">Modifier le produit</h1>
 
-                
-                <aside class="card" style="width: 18rem;">
-                    <img src={{ asset("uploads/")}}{{ products.imageName }} class="card-img-top" alt="image d'article">
-                    <aside class="card-body">
-                        <h5 class="card-title">{{ products.name}}</h5>
-                        <p>Prix : {{ products.price }} €</p>
-                        <a href="{{ path('products_show', {id: products.id}) }}" class="btn btn-primary">Détails</a>
-                        <a href="{{ path('app_products_edit', {id: products.id}) }}" class="btn btn-primary">Modifier</a>
-                    </aside> 
-                </aside>
-
-                {% endfor %}
-                <table class="table">
-
-
-
-  <thead>
-    <tr>
-    <hr>
-    </tr>
-  </thead>
-  <tbody>
-{% for products in products %}
-    <tr>
-      <td><img class=" w-25" src={{ asset("uploads/")}}{{ products.imageName }} class="card-img-top" alt="image d'article"></td>
-      <td><h5 class="card-title">{{ products.name}}</h5></td>
-      <td><p>Prix : {{ products.price }} €</p></td>
-      <td><a href="{{ path('products_show', {id: products.id}) }}" class="btn btn-primary">Détails</a></td>
-      <td><a href="{{ path('app_products_edit', {id: products.id}) }}" class="btn btn-primary">Modifier</a></td>
-    </tr>
-{% endfor %}
-  </tbody>
-</table>
+    <table class="m-auto">
+    <tbody class="bg-light">
+    {% for products in products %}
+        
+        <tr class="border">
+        <td><img class="image_admin" src={{ asset("uploads/")}}{{ products.imageName }} class="card-img-top" alt="image d'article"></td>
+        <td><h5 class="card-title me-5 ms-5">{{ products.name}}</h5></td>
+        <td>Prix : {{ products.price }} €</td>
+        <td><a href="{{ path('products_show', {id: products.id}) }}" class="btn btn-primary me-3 mb-3 mt-3 ms-5">Détails</a></td>
+        <td class="me-3 mt-3"><a href="{{ path('app_products_edit', {id: products.id}) }}" class="btn btn-primary me-3">Modifier</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
 {% endblock %}

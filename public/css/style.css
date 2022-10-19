@@ -105,8 +105,8 @@ section{
 }
 .contenant {
     position: relative;
-    text-align: center;
-    margin: .5em;
+    /* text-align: center; */
+    margin: .95vw;
 }
 .texte_centrer {
     position: absolute;
@@ -138,18 +138,18 @@ section{
     background-color: var(--color-5); 
 }
 #icone_nav_bar{
-    width:65px !important;
-    height:65px !important;
+    width:3.5vw;
+    min-width: 65px;
     transition: transform .3s;
-    padding-top: 1vh !important;
+    padding-top: 1vh;
     padding-right: 1.2vw; 
     padding-bottom: 1.5vh;
 }
 #icone_nav_bar:hover{
-    transform: scale(1.3);
+    transform: scale(1.2);
 } 
 #hr{
-    color:var(--color-5) !important;
+    color:var(--color-5);
 } 
 
 /* ====================Barre latérale fixe===================== */
@@ -288,3 +288,10 @@ section{
     fill: #D23CFA;
   }
   /* ==================== Style carousel ==================== */
+
+
+  /* ==================== Style affichage produits ==================== */
+
+.image_admin{
+    width: 10vw;
+}

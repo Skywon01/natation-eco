@@ -5,7 +5,7 @@
 {% block main %}
     <h1>Veuillez entrer vos identifiants</h1>
 
-    <div class="container">
+    <aside class="w-50 m-auto">
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.name)}}
         {{ form_row(registrationForm.email) }}
@@ -14,5 +14,5 @@
 
         <button type="submit" class="btn btn-primary">Inscription</button>
     {{ form_end(registrationForm) }}
-    </div>
+    </aside>
 {% endblock %}

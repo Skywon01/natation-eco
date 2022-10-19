@@ -7,8 +7,9 @@
 
 
 
-    {% for product in product %}
-                <aside class="card carousel-cell" style="width: 18rem;">
+{% for product in product %}
+                <section class="d-inline-flex m-5">
+                <aside class="card" style="width: 18rem;">
                     <img src={{ asset("uploads/")}}{{ product.imageName }} class="card-img-top" alt="image d'article">
                     <aside class="card-body">
                         <h5 class="card-title">{{ product.name}}</h5>
@@ -16,7 +17,6 @@
                         <a href="{{ path('products_show', {id: product.id}) }}" class="btn btn-primary">Détails</a>
                     </aside> 
                 </aside>
+                </section>
     {% endfor %}
-
-
 {% endblock %}
