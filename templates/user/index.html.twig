@@ -27,17 +27,21 @@
     <p>Ville</p>
     <p>Tel</p>
 
-    <div>
-    <a href="{{ path('user_edit',{id: app.user.id}) }}" id="command" style="text-transform: lowercase; text-transform: capitalize;"> Modifier mes informations</a>
-    <a href="{{ path('user_delete',{id: app.user.id}) }}" id="command" style="text-transform: lowercase; text-transform: capitalize;" onclick="return confirm('Etes-vous sûr de vouloir supprimer votre compte (cette action est irréversible)?');"> 
-    Supprimer votre compte
-    </a>
-    <a href="{{ path('app_forgot_password_request',{id: app.user.id}) }}" id="command" style="text-transform: lowercase; text-transform: capitalize;">Modifier votre mot de passe</a>
-
-    
-    </div>
+    <section class="mb-5 mt-5">
+        <article>
+            <a href="{{ path('user_edit',{id: app.user.id}) }}" id="command" style="text-transform: none;"> Modifier mes informations</a>
+        </article>
+        <article>
+            <a href="{{ path('app_forgot_password_request',{id: app.user.id}) }}" id="command" style="text-transform: none;">Modifier votre mot de passe</a>
+        </article>
+        <article>
+            <a href="{{ path('user_delete',{id: app.user.id}) }}" id="command" style="text-transform: none;" 
+            onclick="return confirm('Etes-vous sûr de vouloir supprimer votre compte (cette action est irréversible)?');"> 
+            Supprimer votre compte
+            </a>
+        </article>
+    </section>
     </article>
-
     </section>
 
     {# {% endfor %} #}
