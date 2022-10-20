@@ -59,7 +59,7 @@
             {% if is_granted('ROLE_USER') %}
                 <div>
                     <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
-                    <a  href="{{ path('panier') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
+                    <a  href="{{ path('cart_index') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
             {% if is_granted('ROLE_ADMIN') %}
                     <a  href="{{ path('app_admin') }}"><img class="icone" src={{ asset("media/admin.svg") }} alt="Mon compte"></a>
             {% endif %}
@@ -67,7 +67,7 @@
             {% else %}
                 <div>
                     <a  href="{{ path('app_login') }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
-                    <a  href="{{ path('panier') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
+                    <a  href="{{ path('cart_index') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
                 </div>
             {% endif %}
         </nav>
@@ -82,7 +82,7 @@
             <a  href="{{ path('app_login') }}"><img id="icone_nav_bar" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
             {% endif %}
             <hr>
-            <a  href="{{ path('panier') }}"><img id="icone_nav_bar" src={{ asset("media/panier.png") }} alt="Panier"></a>
+            <a  href="{{ path('cart_index') }}"><img id="icone_nav_bar" src={{ asset("media/panier.png") }} alt="Panier"></a>
         </div>
 
         {#====================== Navbar sur le côté ========================#}

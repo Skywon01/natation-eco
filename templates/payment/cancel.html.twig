@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement refusé{% endblock %}
+
+{% block body %}
+
+{% block main %}
+
+    <h1>Désolé le paiement a échoué</h1>
+<div class="container">
+    <p>
+      La commande n'a pas été prise en compte
+      Retentez le paiement <a href="{{ path('cart_index') }}">Retour au panier</a> ou 
+      nous contacter <a href="mailto:orders@example.com">orders@example.com</a>.
+    </p>    
+</div>
+{% endblock %}
+{% endblock %}

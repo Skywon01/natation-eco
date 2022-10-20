@@ -5,22 +5,22 @@
 
 <h1>Détails</h1>
 
-
-
-
-<section class="container" id="ctn_art">
-
-<img id="img_article" src={{ asset("uploads/")}}{{ products.imageName }} alt="">
-
-<article id="article">
-<h2>{{ products.name }}</h2>
-<h3 id="desc_art">Description du produit</h3>
-<p>{{ products.description}}</p>
-<h3 id="prix">Prix</h3>
-<p>{{ products.price }} €</p>
-
-<button type="submit" id="command">Ajouter au panier</button>
-</article>
+<section class="container mb-5" id="ctn_art">
+    <img id="img_article" src={{ asset("uploads/")}}{{ products.imageName }} alt="">
+    <article id="article">
+        <h2>{{ products.name }}</h2>
+        <h3 id="desc_art">Description du produit</h3>
+        <p>{{ products.description}}</p>
+        <h3 id="prix">Prix</h3>
+        <p>{{ products.price }} €</p>
+                                
+        {# <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /> #}
+        <a id="command" style="text-transform:none;" type="button" href="{{ path('cart_add', {id: products.id, origin:app.request.attributes.get('_route')}) }}">
+        <i class="bi-cart-fill me-1"></i>
+        Ajouter au panier
+        </a>
+        &nbsp;
+    </article>
 
 
 

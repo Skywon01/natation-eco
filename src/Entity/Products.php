@@ -44,6 +44,9 @@ class Products
     #[ORM\ManyToOne(inversedBy: 'products')]
     private ?Category $Category = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $UpdatedAt = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -117,6 +120,18 @@ class Products
     public function setCategory(?Category $Category): self
     {
         $this->Category = $Category;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->UpdatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeImmutable $UpdatedAt): self
+    {
+        $this->UpdatedAt = $UpdatedAt;
 
         return $this;
     }

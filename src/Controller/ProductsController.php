@@ -88,7 +88,7 @@ public function showAll(ManagerRegistry $doctrine)
 public function edit($id, ManagerRegistry $doctrine, Request $request): Response
 {
     $product = $doctrine->getRepository(Products::class)->find($id);
-
+    $product->setUpdatedAt(new \DateTimeImmutable());
 
 
     
