@@ -4,10 +4,10 @@
 
 {% block main %}
 
-    <div class="container"> 
+    <section class="container"> 
         <form method="post">
             {% if error %}
-                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                <div class="alert alert-danger mt-3">Identifiants incorrects, veuillez réessayer.</div>
             {% endif %}
 
 
@@ -33,9 +33,9 @@
                 </div>
             #}
         </form>
-    </div class="container">
-    <div class="container mb-5" style="width: 45%;">
+    </section class="container">
+    <section class="container mb-5" style="width: 45%;">
         <p>Si vous n'avez pas de compte veuillez vous inscrire ici -></p>
-        <a href="{{ path('app_register') }}" class="btn btn-primary">Inscription</a>
-    </div>
+        <a href="{{ path('app_register') }}" class="btn btn-primary ms-2" style="text-transform:none;">Inscription</a>
+    </section>
 {% endblock %}
