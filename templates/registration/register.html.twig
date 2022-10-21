@@ -5,14 +5,14 @@
 {% block main %}
     <h1>Veuillez entrer vos identifiants</h1>
 
-    <aside class="w-50 m-auto mb-5">
+    <aside class="w-25 m-auto mb-5">
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.name)}}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword.first) }}
         {{ form_row(registrationForm.plainPassword.second) }}
 
-        <button type="submit" class="btn btn-primary">Inscription</button>
+        <button type="submit" class="btn btn-primary mt-3">Inscription</button>
     {{ form_end(registrationForm) }}
     </aside>
 {% endblock %}

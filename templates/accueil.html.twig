@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 
 
-    {% block main %}
+{% block main %}
     <main>
        
         {# Flashes utilisateurs #}
@@ -75,23 +75,22 @@
             </p>
         </section>
         <hr>
-            <h3 class="mt-5">Ces articles pourraient vous intéresser</h3>
+        <h3 class="mt-5">Ces articles pourraient vous intéresser</h3>
         <section>
             <hr>
         </section>
             <aside id="carousel" class="carousel mb-5" data-flickity='{ "autoPlay": true, "wrapAround": true, "autoPlay": true, "cellAlign": "left", "contain": true }'>
-
+      
                 {% for products in products %}
-
-                <aside class="card carousel-cell" style="width: 18rem;">
-                    <img src={{ asset("uploads/")}}{{ products.imageName }} class="card-img-top" alt="image d'article">
-                    <aside class="card-body">
-                        <h5 class="card-title">{{ products.name}}</h5>
-                        <p>Prix : {{ products.price }} €</p>
-                        <a href="{{ path('products_show', {id: products.id}) }}" class="btn btn-primary">Détails</a>
-                    </aside> 
-                </aside>
-
+                    <aside class="card carousel-cell" style="width: 18rem;">
+                        <img src={{ vich_uploader_asset(products, 'imageFile') }} class="card-img-top" alt="image d'article" >
+                        <aside class="card-body">
+                            <h5 class="card-title">{{ products.name}}</h5>
+                            <p>Prix : {{ products.price }} €</p>
+                            <a href="{{ path('products_show', {id: products.id}) }}" class="btn btn-primary" style="text-transform: none;">Détails</a>
+                        </aside> 
+                    </aside>
                 {% endfor %}
+            </aside>
     </main>
 {% endblock %}

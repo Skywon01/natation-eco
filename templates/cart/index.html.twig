@@ -5,7 +5,7 @@
 {% block body %}
 
 {% block main %}
-    <h1>Votre panier</h1>
+    <h1>Contenu de votre panier</h1>
 <section class="container mt-2">
     
     {% if app.user %}
@@ -30,7 +30,7 @@
                 <td>{{ item.quantity }}</td>
                 <td>{{ (item.products.price * item.quantity)|number_format(2, ',', ' ') }} €</td>
                 <td>
-                    <a href="{{ path('cart_delete', {id: item.products.id}) }}" class="btn btn-sm btn-danger" onclick="return confirm('Supprimer cet élément du panier ?');">Supprimer</a>
+                    <a href="{{ path('cart_delete', {id: item.products.id}) }}" class="btn btn-sm btn-danger" style="text-transform:none;" onclick="return confirm('Supprimer cet élément du panier ?');">Supprimer</a>
                 </td>
             </tr>
             {% endfor %}
