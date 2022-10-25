@@ -47,6 +47,9 @@ class Products
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $UpdatedAt = null;
 
+    #[ORM\Column]
+    private ?int $Stock = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -132,6 +135,18 @@ class Products
     public function setUpdatedAt(?\DateTimeImmutable $UpdatedAt): self
     {
         $this->UpdatedAt = $UpdatedAt;
+
+        return $this;
+    }
+
+    public function getStock(): ?int
+    {
+        return $this->Stock;
+    }
+
+    public function setStock(int $Stock): self
+    {
+        $this->Stock = $Stock;
 
         return $this;
     }

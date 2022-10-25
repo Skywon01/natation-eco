@@ -5,11 +5,11 @@
 {% block body %}
 
 {% block main %}
-    <h1>Contenu de votre panier</h1>
+<h1>Contenu de votre panier</h1>
 <section class="container mt-2">
     
     {% if app.user %}
-    {% if items|length > 0 %}
+    {% if panier|length > 0 %}
     <table class="table mt-5">
         <thead>
             <tr>
@@ -22,15 +22,15 @@
             </tr>
         </thead>
         <tbody>
-            {% for item in items %}
+            {% for item in panier %}
             <tr>
-                <th scope="row">{{ item.products.id }}</th>
-                <td>{{ item.products.name }}</td>
-                <td>{{ item.products.price|number_format(2, ',', ' ') ~ ' €' }}</td>
-                <td>{{ item.quantity }}</td>
-                <td>{{ (item.products.price * item.quantity)|number_format(2, ',', ' ') }} €</td>
+                <th scope="row">{{ item.article.id }}</th>
+                <td>{{ item.article.name }}</td>
+                <td>{{ item.article.price|number_format(2, ',', ' ') ~ ' €' }}</td>
+                <td>{{ item.qte }}</td>
+                <td>{{ (item.article.price * item.qte)|number_format(2, ',', ' ') }} €</td>
                 <td>
-                    <a href="{{ path('cart_delete', {id: item.products.id}) }}" class="btn btn-sm btn-danger" style="text-transform:none;" onclick="return confirm('Supprimer cet élément du panier ?');">Supprimer</a>
+                    <a href="{{ path('cart_delete', {id: item.article.id}) }}" class="btn btn-sm btn-danger" style="text-transform:none;" onclick="return confirm('Supprimer cet élément du panier ?');">Supprimer</a>
                 </td>
             </tr>
             {% endfor %}
@@ -48,7 +48,7 @@
         </tbody>
     </table>
     {% else %}
-    <p><b>Votre panier est vide !!</b></p>
+    <p class="mb-5 mt-5"><b>Votre panier est vide !</b></p>
     {% endif %}
 </section>
 {% else %}

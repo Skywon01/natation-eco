@@ -105,12 +105,20 @@
 
     </main>
     <footer>
+        <section>
         <a href="{{ path('index') }}"><img id="logo_footer" src={{ asset("media/logo.svg") }} alt="logo"></a>
-        <a href="{{ path('app_logout') }}">Se déconnecter</a>
+        </section>
+        {% if is_granted('ROLE_USER') %}
+        
+        <aside class="mt-5 mb-5">
+        <a href="{{ path('app_logout') }}" id="command" style="text-transform:none;">Se déconnecter</a>
+        </aside>
+        {% endif %}
         <hr>
         <p>&copy; natation-eco.fr 2022. – Tous droits réservés. – Mentions légales – 
         <a href="{{ path('app_cgv')}}">Conditions générales de vente</a>
          – Gestion des cookies </p>
+    {% block footer %}{% endblock %}
     </footer> 
     </body>
 </html>

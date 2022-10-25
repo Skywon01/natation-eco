@@ -35,29 +35,20 @@ class PaymentController extends AbstractController
         #On récupere la session 'panier' si elle existe - sinon elle est créée avec un tableau vide
         $panier = $session->get('panier', []);
         #Variable tableau
-        $panierData = [];
 
-        foreach($panier as $id => $quantity)
-        {
-            #On enrichi le tableau avec l'objet (qui contient toutes les informations du produit) + la quantité
-            $panierData[] = [
-                "product" => $doctrine->getRepository(Products::class)->find($id),
-                "quantity" => $quantity
-            ];
-        }
 
         //On construit le line_items pour envoyer ce format à Stripe, afin qu'il puisse afficher correctement dans le module de paiement Stripe.
-        foreach($panierData as $id => $value)
+        foreach($panier as $id => $value)
         {
             $line_items[] = [
                 'price_data' => [
                     'currency' => 'eur',
                     'product_data' => [
-                        'name' => $value['product']->getName(),
+                        'name' => $value['article']->getName(),
                     ],
-                    'unit_amount' => $value['product']->getPrice()*100, //Attention: bien mettre le format sans virgule et collé avec les centimes => dans notre cas, le prix est un entier donc ici on multiplie simplement par 100 (exemple 20€ donne 2000)
+                    'unit_amount' => $value['article']->getPrice()*100, //Attention: bien mettre le format sans virgule et collé avec les centimes => dans notre cas, le prix est un entier donc ici on multiplie simplement par 100 (exemple 20€ donne 2000)
                     ],
-                    'quantity' => $value['quantity'],                
+                    'quantity' => $value['qte'],                
                 ];
         }
 

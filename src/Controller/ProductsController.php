@@ -102,7 +102,7 @@ public function edit($id, ManagerRegistry $doctrine, Request $request): Response
 
         $this->addFlash("product_edit_success", "Votre produit a bien été modifié!");
 
-        return $this->redirectToRoute('index');
+        return $this->redirectToRoute('products_show_all');
     }
 
     return $this->render('products/products_edit.html.twig', [

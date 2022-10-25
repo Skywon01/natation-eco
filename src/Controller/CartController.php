@@ -19,57 +19,60 @@ class CartController extends AbstractController
         #On récupere la session 'panier' si elle existe - sinon elle est créée avec un tableau vide
         $panier = $session->get('panier', []);
         #Variable tableau
-        $panierData = [];
+      
+         // j'ajoute mon tableaux panier
+         $panier = $session->get('panier', []);
 
-        foreach($panier as $id => $quantity)
-        {
-            #On enrichi le tableau avec l'objet (qui contient toutes les informations du produit) + la quantité
-            $panierData[] = [
-                "products" => $doctrine->getRepository(Products::class)->find($id),
-                "quantity" => $quantity
-            ];
-        }
-        //dd($panierData);
 
-        #On calcule le total du panier ici, afin de ne pas a avoir a le faire dans la vue Twig
-        $total = 0;
-        foreach($panierData as $id => $value)
-        {
-            $total += $value['products']->getPrice() * $value['quantity'];
-        }
-        //dd($total);
+         $total = 0;
+ 
+         $totalqte = 0;
+ 
+         if(!empty($panier)){
+             foreach ($panier as  $value) {
+                 $total += $value['article']->getPrice() * $value['qte'];
+                 $totalqte += $value['qte'];
+             }
+         }
+ 
 
-        #On calcule le total des quantités ici, afin de ne pas a avoir a le faire dans la vue Twig
-        $totalQuantity = 0;
-        foreach($panierData as $id => $value)
-        {
-            $totalQuantity +=  $value['quantity'];
-        }        
-
+        //  dd($panier);
         #On envoie a la vue le panier enrichi avec les informations + le total du panier
         return $this->render('cart/index.html.twig', [
-            'items' => $panierData,
             'total' => $total,
-            'totalQuantity' => $totalQuantity
+            'panier' => $panier,
+            'totalQuantity' => $totalqte
         ]);
+
     }
 
     /**
      * @Route("panier/add/{id}/{origin}", name="cart_add")
      */
-    public function cartAdd($id, $origin, SessionInterface $session, ManagerRegistry $doctrine)
+    public function cartAdd(Products $article, $origin, SessionInterface $session, ManagerRegistry $doctrine)
     {
+
+        // dd($article);
+
         #ETAPE 1 : on récupere la session 'panier' si elle existe - sinon elle est créée avec un tableau vide
         $panier = $session->get('panier', []);
 
+        // dd($panier);
+
         #ETAPE 2 : On vérifie si l'élément de session d'id $id existe, si oui on incrémente de 1 la quantité
-        if(!empty($panier[$id])) 
-        {
-            $panier[$id]++;
-        }
-        else
-        {
-            $panier[$id] = 1; //Si non on initialise la quantité a 1.
+        if(empty($panier[$article->getId()])){
+            $panier[$article->getId()] = [
+                'article' => $article,
+                'qte' => 1,
+                
+            ];
+            
+        }else{
+            $panier[$article->getId()]=[
+                'article' => $article,
+                'qte' => ++$panier[$article->getId()]['qte']
+            ];
+            
         }
 
         #ETAPE 3 : On remplace la variable de session panier par le nouveau tableau $panier
@@ -78,7 +81,14 @@ class CartController extends AbstractController
         //dd($session->get('panier', []));
 
         # FAIRE CE QUE VOUS VOULEZ ICI : Redirigé vers votre page boutique par exemple.
-        return $this->redirectToRoute($origin, ['id' => $id]);
+        if ($origin == "products_show"){
+            return $this->redirectToRoute($origin,['id' => $article->getId()]);
+        }else{
+            return $this->redirectToRoute($origin);
+        }
+        
+        
+
     }
 
     /**
