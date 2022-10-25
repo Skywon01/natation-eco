@@ -1,12 +1,11 @@
 console.log("Hello World!");
 
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
+/* Au clic sur le bouton on change la classe */
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
   
-  // Close the dropdown menu if the user clicks outside of it
+  // Au clic hors de la zone, le menu disparait
   window.onclick= function(event) {
     if (!event.target.matches('.dropbtn')) {
       var dropdowns = document.getElementsByClassName("dropdown-content");
