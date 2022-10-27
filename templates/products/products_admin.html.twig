@@ -12,7 +12,9 @@
             </div>
         {% endfor %}
 
-    <h1 class="mb-5">Modifier le produit</h1>
+    <h1 class="mb-5">Bienvenue sur la page d'administration des produits</h1>
+
+    <button onclick="window.location.href = '{{ path('app_products_add') }}';" id="command" style="text-transform: none;">Ajouter un produit</button>
 
     <table class="m-auto mb-5">
     <tbody class="bg-light">

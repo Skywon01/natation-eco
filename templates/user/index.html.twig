@@ -7,40 +7,37 @@
 {% block main %}
     <h1>Mon compte</h1>
     <section class="container" id="ctn_compte">
-    <img id="img_compte" src="{{ asset('media/compte/profil_default.jpg') }}" alt="">
+        <img id="img_compte" src="{{ asset('media/compte/profil_default.jpg') }}" alt="">
 
-    <article id="article">
-    <h2>Bonjour {{ user.name }}</h2>
+        <article id="article">
+            <h2>Bonjour {{ user.name }}</h2>
 
-    <h3 id="desc_art">Vos informations</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quos.</p>
+            <h3 id="desc_art">Vos informations</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quos.</p>
 
-    <h3 id="desc_art">Nom</h3>
-    <p>{{ user.name }}</p>
+            <h3 id="desc_art">Nom</h3>
+            <p>{{ user.name }}</p>
 
-    <h3 id="desc_art">Mail</h3>
-    <p>{{ user.email }}</p>
+            <h3 id="desc_art">Mail</h3>
+            <p>{{ user.email }}</p>
 
-    <h3 id="desc_art">Adresse</h3>
-    <p>Rue</p>
-    <p>Ville</p>
-    <p>Tel</p>
+            <h3 id="desc_art">Adresse</h3>
+            <p>Rue</p>
+            <p>Ville</p>
+            <p>Tel</p>
 
-    <section class="mb-5 mt-5">
-        <article>
-            <a href="{{ path('user_edit',{id: app.user.id}) }}" id="command" style="text-transform: none;"> Modifier mes informations</a>
+            <section class="mb-5 mt-5">
+                <article>
+                    <button onclick="window.location.href = '{{ path('user_edit',{id: app.user.id}) }}';" id="command">Modifier mes informations</button>
+                </article>
+                <article>
+                    <button onclick="window.location.href = '{{ path('user_delete',{id: app.user.id}) }}';" id="command">Modifier mon mot de passe</button>
+                </article>
+                <article>
+                    <button onclick="confirm('Etes-vous sûr de vouloir supprimer votre compte (cette action est irréversible)?'); window.location.href = '{{ path('user_delete',{id: app.user.id}) }}';" id="command">Supprimer mon compte</button>
+                </article>
+            </section>
         </article>
-        <article>
-            <a href="{{ path('app_forgot_password_request',{id: app.user.id}) }}" id="command" style="text-transform: none;">Modifier votre mot de passe</a>
-        </article>
-        <article>
-            <a href="{{ path('user_delete',{id: app.user.id}) }}" id="command" style="text-transform: none;" 
-            onclick="return confirm('Etes-vous sûr de vouloir supprimer votre compte (cette action est irréversible)?');"> 
-            Supprimer votre compte
-            </a>
-        </article>
-    </section>
-    </article>
     </section>
 
 

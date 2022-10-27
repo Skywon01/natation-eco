@@ -61,7 +61,7 @@
                     <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
                     <a  href="{{ path('cart_index') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
             {% if is_granted('ROLE_ADMIN') %}
-                    <a  href="{{ path('app_admin') }}"><img class="icone" src={{ asset("media/admin.svg") }} alt="Mon compte"></a>
+                    <a  href="{{ path('products_show_all') }}"><img class="icone" src={{ asset("media/admin.svg") }} alt="Mon compte"></a>
             {% endif %}
                 </div>
             {% else %}

@@ -232,7 +232,7 @@ section{
     margin-top: 3vh;
 }
 #img_article{
-    width:25vw;
+    width:30em;
 }
 #article{
     text-align: left;
@@ -243,8 +243,10 @@ section{
     margin-bottom: 3vh;
 }
 #command{
-    margin:2em;
+    margin:1em;
     padding:1em;
+    padding-top: .5em;
+    padding-bottom: .5em;
     background-color: #23D2FA;
     border-color: #70707000;
     border-radius: 2em;
@@ -297,3 +299,59 @@ section{
 .image_admin{
     width: 10vw;
 }
+
+
+
+
+  /* ==================== Style responsive ==================== */
+
+
+  @media screen and (max-width: 1024px)    {
+
+    /* =====Responsive header global====== */
+    #nav_bar{
+        visibility: collapse;
+    }
+    #index{
+        visibility: collapse;
+    }
+    nav{
+        visibility: collapse;
+    }
+
+    /* =====Responsive header global===== */
+
+    .titre_resp{
+        visibility: collapse;
+    }
+    #ctn_art{
+        flex-direction: column;
+        width:100%;
+        margin-top: 0em;
+    }
+    /* .detail_responsive{
+        width:100%
+    } */
+    *{
+        font-size: 30px;
+    }
+    #img_article{
+        /* text-align: left; */
+        margin: 0em;
+        width: 100%;
+    }
+    #article{
+        margin: auto;
+        text-align: left;
+    }
+    #command{
+        width: 100%;
+        margin: 0em;
+    }
+
+    
+
+
+
+  }
+

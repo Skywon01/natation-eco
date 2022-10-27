@@ -86,6 +86,9 @@ class CartController extends AbstractController
         }else{
             return $this->redirectToRoute($origin);
         }
+        // if ($origin == "products_show"){
+        //     return $this->redirectToRoute($origin, ['id' => $products->getId()]);
+        // }
         
         
 
