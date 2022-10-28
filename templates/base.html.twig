@@ -35,11 +35,11 @@
 
         <p id="fond_logo">
             <a href="{{ path('index') }}"><img id="logo" src={{ asset ("media/logo.svg") }} alt="logo"></a>
-            <a id="index" href="{{ path('index') }}">natation-eco.fr</a>
+            <a id="index" class="menu" href="{{ path('index') }}">natation-eco.fr</a>
         </p>    
         <nav>
-            <a class="nav" href="{{ path('club') }}">Le club</a>
-            <a class="nav" href="{{ path('equipement_show', {id:4}) }}">Equipements</a>
+            <a class="nav menu" href="{{ path('club') }}">Le club</a>
+            <a class="nav menu" href="{{ path('equipement_show', {id:4}) }}">Equipements</a>
 
 
         {# ==================================== Menu Déroulant ================================= #}
@@ -47,14 +47,14 @@
             <div class="dropdown" >
                 <button onclick="myFunction()" class="dropbtn">Maillots de bain</button>
                 <div id="myDropdown" class="dropdown-content">
-                    <a href="{{ path('homme_show', {id: 1}) }}">Homme</a>
-                    <a href="{{ path('femme_show', {id: 2}) }}">Femme</a>
+                    <a href="{{ path('homme_show', {id: 1}) }}"  class="menu">Homme</a>
+                    <a href="{{ path('femme_show', {id: 2}) }}"  class="menu">Femme</a>
                 </div>
             </div> 
 
         {# ==================================== Menu Déroulant ================================= #}
 
-            <a class="nav" href="{{ path('nutrition_show',{id: 3}) }}">Nutrition</a>
+            <a class="nav menu" href="{{ path('nutrition_show',{id: 3}) }}">Nutrition</a>
             
             {% if is_granted('ROLE_USER') %}
                 <div>

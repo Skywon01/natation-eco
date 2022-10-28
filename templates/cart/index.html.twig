@@ -30,7 +30,7 @@
                 <td>{{ item.qte }}</td>
                 <td>{{ (item.article.price * item.qte)|number_format(2, ',', ' ') }} €</td>
                 <td>
-                    <a href="{{ path('cart_delete', {id: item.article.id}) }}" class="command_del btn-danger" style="text-transform:none;" onclick="return confirm('Supprimer cet élément du panier ?');">Supprimer</a>
+                    <a href="{{ path('cart_delete', {id: item.article.id}) }}" class="command_del btn-danger menu" style="text-transform:none;" onclick="return confirm('Supprimer cet élément du panier ?');">Supprimer</a>
                 </td>
             </tr>
             {% endfor %}

@@ -57,7 +57,7 @@ footer{
     width:85%;
     text-align: center;
 }
-a{
+.menu{
     text-decoration: none;
     color:white;
     text-transform: uppercase;
@@ -300,6 +300,9 @@ section{
     height:15em;
     border-radius: 50em;
 }
+.pres_article{
+    margin: 3rem;
+}
 
 
 /* ==================== Style carousel ==================== */
@@ -392,7 +395,15 @@ section{
     h1{
         white-space : nowrap;
     }
-
+    .menu{
+        font-size: 50px;
+    }
+    .pres_article{
+        flex-direction: column;
+        align-items: center;
+        margin: 0rem;
+        margin-bottom: 2rem;
+    }
 
 
 

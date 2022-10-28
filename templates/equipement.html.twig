@@ -3,21 +3,19 @@
 
 {% block main %}
 
-<h1>Equipements</h1>
-
-
+    <h1>Equipements</h1>
 
     {% for product in product %}
-                <section class="d-inline-flex m-5">
-                <aside class="card" style="width: 18rem;">
-                    <img src={{ asset("uploads/")}}{{ product.imageName }} class="card-img-top" alt="image d'article">
-                    <aside class="card-body">
-                        <h5 class="card-title">{{ product.name}}</h5>
-                        <p>Prix : {{ product.price }} €</p>
-                        <a href="{{ path('products_show', {id: product.id}) }}" class="command">Détails</a>
-                    </aside> 
-                </aside>
-                </section>
+        <section class="d-inline-flex pres_article">
+            <aside class="card" style="width: 18rem;">
+                <img src={{ asset("uploads/")}}{{ product.imageName }} class="card-img-top" alt="image d'article">
+                <aside class="card-body">
+                    <h5 class="card-title">{{ product.name}}</h5>
+                    <p>Prix : {{ product.price }} €</p>
+                    <a href="{{ path('products_show', {id: product.id}) }}" class="command">Détails</a>
+                </aside> 
+            </aside>
+        </section>
     {% endfor %}
 
 {% endblock %}
