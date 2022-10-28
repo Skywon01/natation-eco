@@ -14,9 +14,7 @@
     </div>
 {% endfor %}
 
-
-<button onclick="window.location.href = '{{ path('products_show_all') }}';" id="command">Retour à l'administration</button>
-
+<a href="{{ path('products_show_all') }}" class="command">Retour à l'administration</a>
 
 <h1>Ajouter votre produit</h1>
 
@@ -28,7 +26,7 @@
             {{ form_row(formProducts.description) }}
             {{ form_row(formProducts.category) }}
             {{ form_row(formProducts.imageFile)}}
-    <input type="submit" id="command">       
+    <input type="submit" class="command">       
     {{ form_end(formProducts)}}
 
 </aside>

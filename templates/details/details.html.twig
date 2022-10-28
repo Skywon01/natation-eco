@@ -17,7 +17,7 @@
         <p>{{ products.price }} €</p>
                                 
         {# <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /> #}
-        <button class="btn_resp" onclick="window.location.href = '{{ path("cart_add", {id: products.id, origin:app.request.attributes.get('_route')}) }}';" id="command">Ajouter au panier</button>
+        <a href="{{ path("cart_add", {id: products.id, origin:app.request.attributes.get('_route')}) }}" class="command" style="text-transform:none;">Ajouter au panier</a>
     </article>
 
 

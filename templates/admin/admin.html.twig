@@ -11,11 +11,11 @@
 <section class="m-auto mb-5 w-50">
 <article class="m-auto">
 <h3 class="m-auto mb-5">Ajouter un produit</h3>
-<button onclick="window.location.href = '{{ path('app_products_add') }}';" id="command" style="text-transform: none;">Ajouter un produit</button>
+<a href="{{ path('app_products_add') }}" class="command">Ajouter un produit</a>
 </article>
 <article class="m-auto">
 <h3 class="m-auto mb-5">Modifier les produits</h3>
-<button onclick="window.location.href = '{{ path('products_show_all') }}';" id="command">Modifier mes produits</button>
+<a href="{{ path('products_show_all') }}" class="command">Modifier les produits</a>
 </article>
 </section>
 

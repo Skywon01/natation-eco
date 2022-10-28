@@ -28,13 +28,13 @@
 
             <section class="mb-5 mt-5">
                 <article>
-                    <button onclick="window.location.href = '{{ path('user_edit',{id: app.user.id}) }}';" id="command">Modifier mes informations</button>
+                    <a href="{{ path('user_edit',{id: app.user.id}) }}" class="command" style="text-transform:none;">Modifier mes informations</a>
                 </article>
                 <article>
-                    <button onclick="window.location.href = '{{ path('user_delete',{id: app.user.id}) }}';" id="command">Modifier mon mot de passe</button>
+                    <a href="{{ path('app_forgot_password_request',{id: app.user.id}) }}" class="command" style="text-transform:none;">Modifier mon mot de passe</a>
                 </article>
                 <article>
-                    <button onclick="confirm('Etes-vous sûr de vouloir supprimer votre compte (cette action est irréversible)?'); window.location.href = '{{ path('user_delete',{id: app.user.id}) }}';" id="command">Supprimer mon compte</button>
+                    <a href="{{ path('user_delete',{id: app.user.id}) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer votre compte (cette action est irréversible)?')" class="command" style="text-transform:none;">Supprimer mon compte</a>
                 </article>
             </section>
         </article>

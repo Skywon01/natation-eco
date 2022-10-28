@@ -40,6 +40,9 @@ h1{
     width:9vw;
     margin-top: 1em;
 }
+#logo_footer{
+    margin: auto;
+}
 #index{
     color:var(--color-1);
     text-transform: lowercase;
@@ -96,7 +99,7 @@ main{
     text-align: center;
     margin:auto;
 }
-section{
+.ctn_centre{
     justify-content: center;
 }
 .accueil-img{
@@ -242,7 +245,26 @@ section{
     margin-top: 3vh;
     margin-bottom: 3vh;
 }
-#command{
+.command_del{
+    margin:1em;
+    padding:1em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    background-color: #dc3545;
+    border-color: #70707000;
+    border-radius: 2em;
+    box-shadow: #707070 5px 5px 5px;
+    transition-duration: 0.1s;
+    font-weight: bold;
+    font-size:1.2em;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    white-space : nowrap;
+    text-transform:none;
+  
+}
+.command{
     margin:1em;
     padding:1em;
     padding-top: .5em;
@@ -254,11 +276,17 @@ section{
     transition-duration: 0.1s;
     font-weight: bold;
     font-size:1.2em;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    white-space : nowrap;
+    text-transform:none;
+    color: white;
 }
-#command:hover{
+.command:hover{
     background-color: #189cb9;
 }
-#command:active{
+.command:active{
     transition-duration: 0.1s;
     transform: scale(0.96);
 }
@@ -329,14 +357,10 @@ section{
         width:100%;
         margin-top: 0em;
     }
-    /* .detail_responsive{
-        width:100%
-    } */
     *{
         font-size: 30px;
     }
     #img_article{
-        /* text-align: left; */
         margin: 0em;
         width: 100%;
     }
@@ -344,12 +368,31 @@ section{
         margin: auto;
         text-align: left;
     }
-    #command{
+    .command{
         width: 100%;
         margin: 0em;
     }
 
-    
+    /* ==================== Style carousel ==================== */
+    #carousel{
+        width: 100vw;
+    }
+
+    /* ==================== Style carousel ==================== */
+
+    .ctn_centre{
+        flex-direction: column;
+    }
+    .club{
+        visibility: collapse;
+    }
+    *{
+        width: 100%;
+    }
+    h1{
+        white-space : nowrap;
+    }
+
 
 
 

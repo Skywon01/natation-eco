@@ -30,7 +30,7 @@
                 <td>{{ item.qte }}</td>
                 <td>{{ (item.article.price * item.qte)|number_format(2, ',', ' ') }} €</td>
                 <td>
-                    <a href="{{ path('cart_delete', {id: item.article.id}) }}" class="btn btn-sm btn-danger" style="text-transform:none;" onclick="return confirm('Supprimer cet élément du panier ?');">Supprimer</a>
+                    <a href="{{ path('cart_delete', {id: item.article.id}) }}" class="command_del btn-danger" style="text-transform:none;" onclick="return confirm('Supprimer cet élément du panier ?');">Supprimer</a>
                 </td>
             </tr>
             {% endfor %}
@@ -41,7 +41,7 @@
                 <td>{{ total|number_format(2, ',', ' ') }} €</td>
                 <td>
                     <form action="{{ path('checkout') }}" method="POST">
-                        <button type="submit" class="btn btn-primary mt-3 mb-3 w-50">Payer {{ total|number_format(2, ',', ' ') }} €</button>
+                        <button type="submit" class="command mt-3 mb-3 w-50">Payer {{ total|number_format(2, ',', ' ') }} €</button>
                     </form>
                 </td>
             </tr>
@@ -55,7 +55,7 @@
 
 <section class="d-flex flex-column">
 <p>Veuillez vous connecter pour voir votre panier</p>
-<a href="{{ path('app_login') }}" id="command" style="text-transform:none;">Connexion</a>
+<a href="{{ path('app_login') }}" class="command">Connexion</a>
 </section>
 
 {% endif %}

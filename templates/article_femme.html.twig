@@ -14,7 +14,7 @@
                     <aside class="card-body">
                         <h5 class="card-title">{{ product.name}}</h5>
                         <p>Prix : {{ product.price }} €</p>
-                        <a href="{{ path('products_show', {id: product.id}) }}" class="btn btn-primary" style="text-transform:none;">Détails</a>
+                        <a href="{{ path('products_show', {id: product.id}) }}" class="command" style="text-transform:none;">Détails</a>
                         {# <button onclick="window.location.href = '{{ path("cart_add", {id: product.id, origin:app.request.attributes.get('_route')}) }}';" id="command">Ajouter au panier</button> #}
                     </aside> 
                 </aside>

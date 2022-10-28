@@ -46,7 +46,7 @@
 
 
         <h1>Bienvenue sur natation-eco.fr</h1>
-        <section>
+        <section class="club ctn_centre">
             <article>
                 <p class="contenant">
                     <a href="{{ path('club') }}"><img src={{ asset("media/club.jpg")}} alt="le club" class="accueil-img"></a>
@@ -54,7 +54,7 @@
                 </p>
             </article>
         </section>
-        <section>
+        <section class="ctn_centre">
             <p class="contenant">
                 <a href="{{ path('femme_show', {id: 2}) }}"><img src={{ asset("media/article-femme.jpg")}} alt="maillots de bain femme" class="accueil-img"></a>
                 <a class="texte_centrer" href="{{ path('femme_show', {id: 2}) }}">Maillots de bain femme</a>
@@ -64,7 +64,7 @@
                 <a class="texte_centrer" href="{{ path('homme_show', {id: 1}) }}">Maillots de bain homme</a>
             </p>
         </section>
-        <section>
+        <section class="ctn_centre">
             <p class="contenant">
                 <a href="{{ path('nutrition_show',{id: 3}) }}"><img src={{ asset("media/nutrition.jpg")}} alt="nutrition" class="accueil-img"></a>
                 <a class="texte_centrer" href="{{ path('nutrition_show',{id: 3}) }}">Nutrition</a>
@@ -79,19 +79,18 @@
         <section>
             <hr>
         </section>
-            <aside id="carousel" class="carousel mb-5" data-flickity='{ "autoPlay": true, "wrapAround": true, "autoPlay": true, "cellAlign": "left", "contain": true }'>
-      
-                {% for products in products %}
-                    <aside class="card carousel-cell" style="width: 18rem;">
-                        <img src={{ vich_uploader_asset(products, 'imageFile') }} class="card-img-top" alt="image d'article" >
-                        <aside class="card-body">
-                            <h5 class="card-title">{{ products.name}}</h5>
-                            <p>Prix : {{ products.price }} €</p>
-                            <a href="{{ path('products_show', {id: products.id}) }}" class="btn btn-primary" style="text-transform: none;">Détails</a>
-                        </aside> 
-                    </aside>
-                {% endfor %}
-            </aside>
+        <aside id="carousel" class="carousel mb-5" data-flickity='{ "autoPlay": true, "wrapAround": true, "autoPlay": true, "cellAlign": "center", "contain": true }'>
+            {% for products in products %}
+                <aside class="card carousel-cell" style="width: 18rem;">
+                    <img src={{ vich_uploader_asset(products, 'imageFile') }} class="card-img-top" alt="image d'article" >
+                    <aside class="card-body">
+                        <h5 class="card-title">{{ products.name}}</h5>
+                        <p>Prix : {{ products.price }} €</p>
+                        <a href="{{ path('products_show', {id: products.id}) }}" class="command">Détails</a>
+                    </aside> 
+                </aside>
+            {% endfor %}
+        </aside>
     </main>
 {% endblock %}
 {% block footer %}

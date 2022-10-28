@@ -10,17 +10,17 @@
     {% endfor %}
     <h2 class="mt-5 mb-5" style="color: #707070; font-family: Roboto;">Entrez votre adresse mail</h2>
 
-    <section class="w-25 m-auto mb-5">
+    <aside class="w-25 m-auto mb-5">
         {{ form_start(requestForm) }}
             {{ form_row(requestForm.email) }}
-    </section>
+    </aside>
             <div class="mb-5">
                 <small>
                     Entrez votre adresse mail, un mail vous sera envoyé à l'adresse correspondante avec un lien pour réinitialiser votre mot de passe
                 </small>
             </div>
 
-            <button class="btn btn-primary">Envoyer le mail</button>
+            <button class="command">Envoyer le mail</button>
         {{ form_end(requestForm) }}
 
     {% endblock %}

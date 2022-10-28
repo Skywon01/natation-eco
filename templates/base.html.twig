@@ -106,12 +106,12 @@
     </main>
     <footer>
         <section>
-        <a href="{{ path('index') }}"><img id="logo_footer" src={{ asset("media/logo.svg") }} alt="logo"></a>
+        <a id="logo_footer" href="{{ path('index') }}"><img id="logo_footer" src={{ asset("media/logo.svg") }} alt="logo"></a>
         </section>
         {% if is_granted('ROLE_USER') %}
         
         <aside class="mt-5 mb-5">
-        <a href="{{ path('app_logout') }}" id="command" style="text-transform:none;">Se déconnecter</a>
+        <a href="{{ path('app_logout') }}" class="command" style="text-transform:none;">Se déconnecter</a>
         </aside>
         {% endif %}
         <hr>
