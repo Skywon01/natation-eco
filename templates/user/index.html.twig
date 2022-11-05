@@ -28,13 +28,13 @@
 
             <section class="mb-5 mt-5">
                 <article>
-                    <a href="{{ path('user_edit',{id: app.user.id}) }}" class="command" style="text-transform:none;">Modifier mes informations</a>
+                    <a href="{{ path('user_edit',{id: app.user.id}) }}" class="btn rounded-pill command" style="text-transform:none;">Modifier mes informations</a>
                 </article>
                 <article>
-                    <a href="{{ path('app_forgot_password_request',{id: app.user.id}) }}" class="command" style="text-transform:none;">Modifier mon mot de passe</a>
+                    <a href="{{ path('app_forgot_password_request',{id: app.user.id}) }}" class="btn rounded-pill command">Modifier mon mot de passe</a>
                 </article>
                 <article>
-                    <a href="{{ path('user_delete',{id: app.user.id}) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer votre compte (cette action est irréversible)?')" class="command" style="text-transform:none;">Supprimer mon compte</a>
+                    <a href="{{ path('user_delete',{id: app.user.id}) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer votre compte (cette action est irréversible)?')" class="command_del" style="text-transform:none;">Supprimer mon compte</a>
                 </article>
             </section>
         </article>
