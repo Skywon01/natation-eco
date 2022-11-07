@@ -4,7 +4,7 @@
 
 {% block main %}
 
-    <section class="container"> 
+    <section class="container w-25"> 
         <form method="post">
             {% if error %}
                 <div class="alert alert-danger mt-3">Identifiants incorrects, veuillez réessayer.</div>
@@ -19,7 +19,7 @@
             <input type="hidden" name="_csrf_token"
                     value="{{ csrf_token('authenticate') }}"
                     >
-            <button class="command mt-3 mb-5" type="submit">
+            <button class="btn command mt-3 mb-5 rounded-pill" type="submit">
                 Connexion
             </button>
             {#
@@ -33,9 +33,9 @@
                 </div>
             #}
         </form>
-    </section class="container">
+    </section>
     <section class="container mb-5" style="width: 45%;">
         <p>Si vous n'avez pas de compte veuillez vous inscrire ici -></p>
-        <a href="{{ path('app_register') }}" class="command ms-2" >Inscription</a>
+        <a href="{{ path('app_register') }}" class="btn command ms-2 rounded-pill" >Inscription</a>
     </section>
 {% endblock %}

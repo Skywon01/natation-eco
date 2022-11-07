@@ -15,10 +15,18 @@ body{
     background-color: #0acefa07;
 }
 header{
-    background-image: url(../media/ban.jpg);
+    background-image: url(../media/ban.webp);
     background-size: cover;
     background-repeat: no-repeat;
 }
+h1{
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    font-family: Roboto;
+    font-weight: 300;
+    color:#707070;
+}
+
 .icone{
     width:35px;
     height:35px;
@@ -91,15 +99,27 @@ main{
     transition-duration: 0.1s;
     color: white;
     background-color: var(--color-1);
-    border-color: #70707000;
 
 }
 .command:hover{
     background-color: #189cb9 !important;
-    border-color: #70707000;
 
 }
 .command:active{
+    transition-duration: 0.1s;
+    transform: scale(0.96);
+}
+.command_del{
+    box-shadow: #707070 5px 5px 5px;
+    transition-duration: 0.1s;
+    color: white;
+
+}
+.command_del:hover{
+    background-color: #84202a !important;
+
+}
+.command_del:active{
     transition-duration: 0.1s;
     transform: scale(0.96);
 }

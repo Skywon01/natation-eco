@@ -6,10 +6,10 @@
 
 {% block main %}
     <h1>Mon compte</h1>
-    <section class="container" id="ctn_compte">
-        <img id="img_compte" src="{{ asset('media/compte/profil_default.jpg') }}" alt="">
+    <section class="mx-auto container d-flex justify-content-center">
+        <img class="rounded-circle m-5" style="width:150px; height:150px;" src="{{ asset('media/compte/profil_default.jpg') }}" alt="Photo de profil">
 
-        <article id="article">
+        <article class="text-start">
             <h2>Bonjour {{ user.name }}</h2>
 
             <h3 id="desc_art">Vos informations</h3>
@@ -26,7 +26,7 @@
             <p>Ville</p>
             <p>Tel</p>
 
-            <section class="mb-5 mt-5">
+            <section class="d-flex inline-flex mb-5 mt-5">
                 <article>
                     <a href="{{ path('user_edit',{id: app.user.id}) }}" class="btn rounded-pill command" style="text-transform:none;">Modifier mes informations</a>
                 </article>
@@ -34,7 +34,7 @@
                     <a href="{{ path('app_forgot_password_request',{id: app.user.id}) }}" class="btn rounded-pill command">Modifier mon mot de passe</a>
                 </article>
                 <article>
-                    <a href="{{ path('user_delete',{id: app.user.id}) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer votre compte (cette action est irréversible)?')" class="command_del" style="text-transform:none;">Supprimer mon compte</a>
+                    <a href="{{ path('user_delete',{id: app.user.id}) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer votre compte (cette action est irréversible)?')" class="btn command_del rounded-pill bg-danger">Supprimer mon compte</a>
                 </article>
             </section>
         </article>
