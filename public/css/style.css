@@ -123,6 +123,12 @@ main{
     transition-duration: 0.1s;
     transform: scale(0.96);
 }
+.img_panier{
+    width: 25%;
+}
+.user_mobile{
+    visibility: hidden;
+}
 
 
 /* ==================== Style carousel ==================== */
@@ -169,5 +175,17 @@ main{
     }
     .image_admin{
         width:25%;
+    }
+    *{
+        font-size: xx-large;
+    }
+    .img_panier{
+        width: 50%;
+    }
+    .user_desktop{
+        visibility: hidden;
+    }
+    .user_mobile{
+        visibility: visible;
     }
 }

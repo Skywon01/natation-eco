@@ -6,42 +6,42 @@
 
 {% block main %}
 <h1>Contenu de votre panier</h1>
-<section class="container mt-2">
-    
     {% if app.user %}
     {% if panier|length > 0 %}
-    <table class="table mt-5">
-        <thead>
-            <tr>
-                <th scope="col">Ref</th>
-                <th scope="col">Produit</th>
-                <th scope="col">Prix TTC</th>
-                <th scope="col">Quantité</th>
-                <th scope="col">Somme</th>
-                <th scope="col">Supprimer</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in panier %}
-            <tr>
-                <th scope="row">{{ item.article.id }}</th>
-                <td>{{ item.article.name }}</td>
-                <td>{{ item.article.price|number_format(2, ',', ' ') ~ ' €' }}</td>
-                <td>{{ item.qte }}</td>
-                <td>{{ (item.article.price * item.qte)|number_format(2, ',', ' ') }} €</td>
-                <td>
-                    <a href="{{ path('cart_delete', {id: item.article.id}) }}" class="btn rounded-pill btn-danger menu" style="text-transform:none;" onclick="return confirm('Supprimer cet élément du panier ?');">Supprimer</a>
-                </td>
-            </tr>
+
+{% for item in panier %}
+
+<section class="container mb-2 d-flex border border-3 rounded" id="ctn_art">
+
+    <article class="detail_responsive mt-2">
+        <img class="img_panier col-6" src={{ asset("uploads/")}}{{ item.article.imageName }} alt="">
+    </article>
+    <article class="text-start col-4">
+        <h2>{{ item.article.name }}</h2>
+        <h3 id="prix">Prix</h3>
+        <p>{{ item.article.price|number_format(2, ',', ' ') ~ ' €' }}</p>
+        {# <td>{{ item.qte }}</td> #}
+        <p>{{ (item.article.price * item.qte)|number_format(2, ',', ' ') }} €</p>
+
+
+        <a href="{{ path('cart_delete', {id: item.article.id}) }}" class="command_del btn rounded-pill btn-danger menu mb-2" onclick="return confirm('Supprimer cet élément du panier ?');">Supprimer</a>
+
+                                
+        {# <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /> #}
+    </article>
+
+</section>
             {% endfor %}
+    <table  class="border border-3 rounded col-10 m-auto">       
+
             <tr>
                 <th colspan="2"></th>
                 <td><b>TOTAL</b></td>
-                <td>{{ totalQuantity }}</td>
+                {# <td>{{ totalQuantity }}</td> #}
                 <td>{{ total|number_format(2, ',', ' ') }} €</td>
-                <td>
+                <td class="col-6">
                     <form action="{{ path('checkout') }}" method="POST">
-                        <button type="submit" class="btn btn-primary rounded-pill mt-3 mb-3 w-50">Payer {{ total|number_format(2, ',', ' ') }} €</button>
+                        <button type="submit" class="command btn btn-primary rounded-pill mt-3 mb-3  ">Commander</button>
                     </form>
                 </td>
             </tr>
