@@ -82,6 +82,8 @@ class CartController extends AbstractController
 
         # FAIRE CE QUE VOUS VOULEZ ICI : Redirigé vers votre page boutique par exemple.
         if ($origin == "products_show"){
+            $this->addFlash('cart_add_success', "Votre produit a bien été ajouté au panier !");
+
             return $this->redirectToRoute($origin,['id' => $article->getId()]);
         }else{
             return $this->redirectToRoute($origin);

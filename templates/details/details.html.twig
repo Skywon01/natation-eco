@@ -3,6 +3,13 @@
 
 {% block main %}
 
+{% for message in app.flashes('cart_add_success') %}
+    <div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
+        <strong>Félicitations !</strong> {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+        {% endfor %}
+
 <h1 class="titre_resp">Détails</h1>
 
 <section class="container mb-5" id="ctn_art">

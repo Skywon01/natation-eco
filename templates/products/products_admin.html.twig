@@ -14,19 +14,20 @@
 
     <h1 class="mb-5">Bienvenue sur la page d'administration des produits</h1>
 
-    <a href="{{ path('app_products_add') }}" class="command">Ajouter un produit</a>
+    <a href="{{ path('app_products_add') }}" class="command btn rounded-pill mb-5">Ajouter un produit</a>
 
-    <table class="m-auto mb-5">
+    <table class="table m-auto col-12 mb-5">
         <tbody class="bg-light">
             {% for products in products %}
                 <tr class="border">
-                    <td><img class="image_admin" src={{ asset("uploads/")}}{{ products.imageName }} alt="image d'article"></td>
-                    <td><h5 class="card-title me-5 ms-5">{{ products.name}}</h5></td>
+                    <td class="d-lg-block"><img class="image_admin col-3 d-none d-lg-block" src={{ asset("uploads/")}}{{ products.imageName }} alt="image d'article"></td>
+                    <td  class="col 3"><h5 class="card-title me-5 ms-5">{{ products.name}}</h5></td>
                     <td>Prix : {{ products.price }} €</td>
-                    <td><a href="{{ path('products_show', {id: products.id}) }}" class="command me-3 mb-3 mt-3 ms-5" >Détails</a></td>
-                    <td class="me-3 mt-3"><a href="{{ path('app_products_edit', {id: products.id}) }}" class="command me-3" >Modifier</a></td>
+                    <td><a href="{{ path('products_show', {id: products.id}) }}" class="command btn rounded-pill mt-3 mb-5" >Détails</a><a href="{{ path('app_products_edit', {id: products.id}) }}" class="command btn rounded-pill" >Modifier</a></td>
+
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+
 {% endblock %}

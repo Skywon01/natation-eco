@@ -26,6 +26,11 @@ h1{
     font-weight: 300;
     color:#707070;
 }
+#index{
+    color:var(--color-1);
+    text-transform: uppercase;
+
+}
 
 .icone{
     width:35px;
