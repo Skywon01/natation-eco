@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr-FR">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Natation-eco{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         
         {# CSS BOOTSTRAP 5 #}
 
@@ -62,20 +61,20 @@
 					    <a class="nav-link text-uppercase" href="{{ path('nutrition_show',{id: 3}) }}">Nutrition</a>
 					</li>
 						            {% if is_granted('ROLE_USER') %}
-                <div>
+                <li>
                     <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
                     <a  href="{{ path('cart_index') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
             {% if is_granted('ROLE_ADMIN') %}
                     <a  href="{{ path('products_show_all') }}"><img class="icone" src={{ asset("media/admin.svg") }} alt="Mon compte"></a>
             {% endif %}
-                </div>
+                </li>
             {% else %}
-                <div>
+                <li>
                     <a  href="{{ path('app_login') }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
                     <a  href="{{ path('cart_index') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
-                </div>
+                </li>
             {% endif %}
-					</li>
+					
 				</ul>
 			</div>
 		</div>
@@ -91,20 +90,22 @@
             
         {#====================== Navbar sur le côté ========================#}
         
-        <div id="nav_bar">
-            <a  href="{{ path('club') }}"><img id="icone_nav_bar" src={{ asset("media/club.png") }} alt="Club"></a>
+        <div class="position-fixed mt-5" id="nav_bar">
+            <div class="m-auto">
+            <a  href="{{ path('club') }}"><img class="icone_nav_bar mt-1" src={{ asset("media/club.png") }} alt="Club"></a>
             <hr>
             {% if is_granted('ROLE_USER') %}
-            <a  href="{{ path('user_show',{id: app.user.id}) }}"><img id="icone_nav_bar" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
+            <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="icone_nav_bar" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
             {% else %}
-            <a  href="{{ path('app_login') }}"><img id="icone_nav_bar" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
+            <a  href="{{ path('app_login') }}"><img class="icone_nav_bar" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
             {% endif %}
             <hr>
-            <a  href="{{ path('cart_index') }}"><img id="icone_nav_bar" src={{ asset("media/panier.png") }} alt="Panier"></a>
+            <a  href="{{ path('cart_index') }}"><img class="icone_nav_bar mb-1" src={{ asset("media/panier.png") }} alt="Panier"></a>
+            </div>
         </div>
 
         {#====================== Navbar sur le côté ========================#}
-    </header>
+    
 
     <main>
     {% block main %}{% endblock %}
@@ -124,6 +125,8 @@
     </main>
     <footer class="m-auto">
         <section class="d-flex m-auto">
+        <h6 class="d-none">Titre caché</h6>
+
         <a id="logo_footer" class="m-auto" href="{{ path('index') }}"><img style="width:150px" class="m-auto" src={{ asset("media/logo.svg") }} alt="logo"></a>
         </section>
         {% if is_granted('ROLE_USER') %}

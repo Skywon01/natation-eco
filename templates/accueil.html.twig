@@ -2,7 +2,7 @@
 
 
 {% block main %}
-    <main>
+    
        
         {# Flashes utilisateurs #}
 
@@ -47,7 +47,9 @@
 
         <h1>Bienvenue sur natation-eco.fr</h1>
         <section class="club ctn_centre">
+        <h6 class="d-none">Titre caché</h6>
             <article>
+            <h6 class="d-none">Titre caché</h6>
                 <p class="contenant">
                     <a href="{{ path('club') }}"><img src={{ asset("media/club.jpg")}} alt="le club" class="accueil-img"></a>
                     <a class="texte_centrer menu nav-link" href="">Le club</a>
@@ -55,6 +57,7 @@
             </article>
         </section>
         <section class="ctn_centre">
+        <h6 class="d-none">Titre caché</h6>
             <p class="contenant">
                 <a href="{{ path('femme_show', {id: 2}) }}"><img src={{ asset("media/article-femme.jpg")}} alt="maillots de bain femme" class="accueil-img"></a>
                 <a class="texte_centrer menu nav-link nav-link" href="{{ path('femme_show', {id: 2}) }}">Maillots de bain femme</a>
@@ -65,6 +68,7 @@
             </p>
         </section>
         <section class="ctn_centre">
+        <h6 class="d-none">Titre caché</h6>
             <p class="contenant">
                 <a href="{{ path('nutrition_show',{id: 3}) }}"><img src={{ asset("media/nutrition.jpg")}} alt="nutrition" class="accueil-img"></a>
                 <a class="texte_centrer menu nav-link" href="{{ path('nutrition_show',{id: 3}) }}">Nutrition</a>
@@ -77,6 +81,7 @@
         <hr>
         <h3 class="mt-5">Ces articles pourraient vous intéresser</h3>
         <section>
+        <h6 class="d-none">Titre caché</h6>
             <hr>
         </section>
         <aside id="carousel" class="carousel mb-5" data-flickity='{ "autoPlay": true, "wrapAround": true, "autoPlay": true, "cellAlign": "center", "contain": true }'>
@@ -91,7 +96,7 @@
                 </aside>
             {% endfor %}
         </aside>
-    </main>
+    
 {% endblock %}
 {% block footer %}
 <script>

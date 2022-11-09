@@ -69,16 +69,13 @@ main{
     display:flex;
     flex-direction: column;
     background-color: var(--color-5); 
-}
-#icone_nav_bar{
     width:75px;
-    /* min-width: 65px; */
-    transition: transform .3s;
-    padding-top: 1vh;
-    padding-right: 1.2vw; 
-    padding-bottom: 1.5vh;
 }
-#icone_nav_bar:hover{
+.icone_nav_bar{
+    width:60px;
+    transition: transform .3s;
+}
+    .icone_nav_bar:hover{
     transform: scale(1.2);
 } 
 #hr{

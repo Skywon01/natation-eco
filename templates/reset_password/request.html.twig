@@ -13,15 +13,15 @@
     <aside class="w-25 m-auto mb-5">
         {{ form_start(requestForm) }}
             {{ form_row(requestForm.email) }}
-    </aside>
+
             <div class="mb-5">
                 <small>
                     Entrez votre adresse mail, un mail vous sera envoyé à l'adresse correspondante avec un lien pour réinitialiser votre mot de passe
                 </small>
             </div>
-
-            <button class="command">Envoyer le mail</button>
+            <button class="command btn rounded-pill">Envoyer le mail</button>
         {{ form_end(requestForm) }}
+    </aside>
 
     {% endblock %}
 {% endblock %}

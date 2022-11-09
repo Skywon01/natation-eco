@@ -35,7 +35,6 @@
     <table  class="border border-3 rounded col-10 m-auto">       
 
             <tr>
-                <th colspan="2"></th>
                 <td><b>TOTAL</b></td>
                 {# <td>{{ totalQuantity }}</td> #}
                 <td>{{ total|number_format(2, ',', ' ') }} €</td>
@@ -50,7 +49,7 @@
     {% else %}
     <p class="mb-5 mt-5"><b>Votre panier est vide !</b></p>
     {% endif %}
-</section>
+
 {% else %}
 
 <section class="d-flex flex-column">

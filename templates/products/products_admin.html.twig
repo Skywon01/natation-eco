@@ -20,7 +20,7 @@
         <tbody class="bg-light">
             {% for products in products %}
                 <tr class="border">
-                    <td><img class="image_admin" src={{ asset("uploads/")}}{{ products.imageName }} class="card-img-top" alt="image d'article"></td>
+                    <td><img class="image_admin" src={{ asset("uploads/")}}{{ products.imageName }} alt="image d'article"></td>
                     <td><h5 class="card-title me-5 ms-5">{{ products.name}}</h5></td>
                     <td>Prix : {{ products.price }} €</td>
                     <td><a href="{{ path('products_show', {id: products.id}) }}" class="command me-3 mb-3 mt-3 ms-5" >Détails</a></td>

@@ -7,12 +7,12 @@
     <h1>Modifier vos informations</h1>
     <br>
     
-    <div class="container">
+    <div class="container w-25">
     {{ form_start(formUser) }}
-        <p>{{ form_row(formUser.name) }}</p> 
-        <p>{{ form_row(formUser.email) }}</p> 
-        <p>{{ form_row(formUser.password) }}</p> 
-        <button type="submit" value="Enregistrer" class="command mb-5">Modifier</button>
+        {{ form_row(formUser.name) }}
+        {{ form_row(formUser.email) }}
+        {# <p>{{ form_row(formUser.password) }}</p>  #}
+        <button type="submit" value="Enregistrer" class="btn command mb-5 rounded-pill">Modifier</button>
     {{ form_end(formUser) }}
     </div>
 {% endblock %}
