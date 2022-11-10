@@ -37,70 +37,61 @@
 		</header>
 
 		<nav class="navbar navbar-expand-lg d-flex justify-content-around" style="background-color:#707070;">
-		<div class="">
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item">
-						<a class="nav-link text-uppercase" aria-current="page" href="{{ path('club') }}">Le club</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-uppercase" href="{{ path('equipement_show', {id:4}) }}">Equipement</a>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle text-uppercase" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Maillots de bain
-						</a>
-					<ul class="dropdown-menu">
-						<li><a class=" dropdown-item text-uppercase" href="{{ path('homme_show', {id: 1}) }}">Homme</a></li>
-						<li><a class="dropdown-item text-uppercase" href="{{ path('femme_show', {id: 2}) }}">Femme</a></li>
-					</ul>
-					<li class="nav-item">
-					    <a class="nav-link text-uppercase" href="{{ path('nutrition_show',{id: 3}) }}">Nutrition</a>
-					</li>
-						            {% if is_granted('ROLE_USER') %}
-                <li>
-                    <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
-                    <a  href="{{ path('cart_index') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
-            {% if is_granted('ROLE_ADMIN') %}
-                    <a  href="{{ path('products_show_all') }}"><img class="icone" src={{ asset("media/admin.svg") }} alt="Mon compte"></a>
-            {% endif %}
-                </li>
-            {% else %}
-                <li>
-                    <a  href="{{ path('app_login') }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
-                    <a  href="{{ path('cart_index') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
-                </li>
-            {% endif %}
-					
-				</ul>
-			</div>
-		</div>
-
-	</nav>
-
-
-        
-        
-        
-
-        
+            <div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-uppercase" aria-current="page" href="{{ path('club') }}">Le club</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="{{ path('equipement_show', {id:4}) }}">Equipement</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-uppercase" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Maillots de bain
+                            </a>
+                        <ul class="dropdown-menu">
+                            <li><a class=" dropdown-item text-uppercase" href="{{ path('homme_show', {id: 1}) }}">Homme</a></li>
+                            <li><a class="dropdown-item text-uppercase" href="{{ path('femme_show', {id: 2}) }}">Femme</a></li>
+                        </ul>
+                        <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="{{ path('nutrition_show',{id: 3}) }}">Nutrition</a>
+                        </li>
+                        {% if is_granted('ROLE_USER') %}
+                        <li>
+                            <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
+                            <a  href="{{ path('cart_index') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
+                            {% if is_granted('ROLE_ADMIN') %}
+                            <a  href="{{ path('products_show_all') }}"><img class="icone" src={{ asset("media/admin.svg") }} alt="Mon compte"></a>
+                            {% endif %}
+                        </li>
+                        {% else %}
+                        <li>
+                            <a  href="{{ path('app_login') }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
+                            <a  href="{{ path('cart_index') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+	    </nav>
             
         {#====================== Navbar sur le côté ========================#}
         
         <div class="position-fixed mt-5" id="nav_bar">
             <div class="m-auto">
-            <a  href="{{ path('club') }}"><img class="icone_nav_bar mt-1" src={{ asset("media/club.png") }} alt="Club"></a>
-            <hr>
-            {% if is_granted('ROLE_USER') %}
-            <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="icone_nav_bar" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
-            {% else %}
-            <a  href="{{ path('app_login') }}"><img class="icone_nav_bar" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
-            {% endif %}
-            <hr>
-            <a  href="{{ path('cart_index') }}"><img class="icone_nav_bar mb-1" src={{ asset("media/panier.png") }} alt="Panier"></a>
+                <a  href="{{ path('club') }}"><img class="icone_nav_bar mt-1" src={{ asset("media/club.png") }} alt="Club"></a>
+                <hr>
+                {% if is_granted('ROLE_USER') %}
+                <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="icone_nav_bar" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
+                {% else %}
+                <a  href="{{ path('app_login') }}"><img class="icone_nav_bar" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
+                {% endif %}
+                <hr>
+                <a  href="{{ path('cart_index') }}"><img class="icone_nav_bar mb-1" src={{ asset("media/panier.png") }} alt="Panier"></a>
             </div>
         </div>
 
@@ -125,20 +116,20 @@
     </main>
     <footer class="m-auto">
         <section class="d-flex m-auto">
-        <h6 class="d-none">Titre caché</h6>
-
-        <a id="logo_footer" class="m-auto" href="{{ path('index') }}"><img style="width:150px" class="m-auto" src={{ asset("media/logo.svg") }} alt="logo"></a>
+            <h6 class="d-none">Titre caché</h6>
+            <a id="logo_footer" class="m-auto" href="{{ path('index') }}"><img style="width:150px" class="m-auto" src={{ asset("media/logo.svg") }} alt="logo"></a>
         </section>
         {% if is_granted('ROLE_USER') %}
         
         <aside class="d-flex justify-content-center mt-5 mb-5">
-        <a href="{{ path('app_logout') }}" class="btn rounded-pill command">Se déconnecter</a>
+            <a href="{{ path('app_logout') }}" class="btn rounded-pill command">Se déconnecter</a>
         </aside>
         {% endif %}
         <hr>
-        <p class="text-center">&copy; natation-eco.fr 2022. – Tous droits réservés. – Mentions légales – 
-        <a href="{{ path('app_cgv')}}">Conditions générales de vente</a>
-         – Gestion des cookies </p>
+        <p class="text-center">
+            &copy; natation-eco.fr 2022. – Tous droits réservés. – Mentions légales – 
+            <a href="{{ path('app_cgv')}}">Conditions générales de vente</a>
+        </p>
     {% block footer %}{% endblock %}
     </footer> 
     </body>

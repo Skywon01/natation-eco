@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class ProductsController extends AbstractController
 {
@@ -69,6 +70,7 @@ public function show($id, ManagerRegistry $doctrine)
 /**
  * @Route("products/show_all", name="products_show_all")
  */
+#[IsGranted('ROLE_ADMIN')]
 public function showAll(ManagerRegistry $doctrine)
 {
     $products = $doctrine->getRepository(Products::class)->findAll();
@@ -85,6 +87,7 @@ public function showAll(ManagerRegistry $doctrine)
 /**
  * @Route("/product/edit/{id} ", name="app_products_edit")
  */
+#[IsGranted('ROLE_ADMIN')]
 public function edit($id, ManagerRegistry $doctrine, Request $request): Response
 {
     $product = $doctrine->getRepository(Products::class)->find($id);
