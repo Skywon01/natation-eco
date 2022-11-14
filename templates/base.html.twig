@@ -60,20 +60,22 @@
                         <li class="nav-item">
                             <a class="nav-link text-uppercase" href="{{ path('nutrition_show',{id: 3}) }}">Nutrition</a>
                         </li>
+                        <div class="row align-self-center">
                         {% if is_granted('ROLE_USER') %}
                         <li>
-                            <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
-                            <a  href="{{ path('cart_index') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
+                            <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="ms-2 icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
+                            <a  href="{{ path('cart_index') }}"><img class=" ms-2 icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
                             {% if is_granted('ROLE_ADMIN') %}
-                            <a  href="{{ path('products_show_all') }}"><img class="icone" src={{ asset("media/admin.svg") }} alt="Mon compte"></a>
+                            <a  href="{{ path('products_show_all') }}"><img class="ms-2 icone" src={{ asset("media/admin.svg") }} alt="Mon compte"></a>
                             {% endif %}
                         </li>
                         {% else %}
                         <li>
-                            <a  href="{{ path('app_login') }}"><img class="icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
-                            <a  href="{{ path('cart_index') }}"><img class="icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
+                            <a  href="{{ path('app_login') }}"><img class="ms-2 icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
+                            <a  href="{{ path('cart_index') }}"><img class="ms-2 icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
                         </li>
                         {% endif %}
+                        </div>
                     </ul>
                 </div>
             </div>

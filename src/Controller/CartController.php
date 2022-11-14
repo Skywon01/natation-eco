@@ -11,16 +11,16 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CartController extends AbstractController
 {
-    /**
-     * @Route("/cart", name="cart_index")
-     */
+
+    #[Route('/cart', name: 'cart_index')]
+
     public function index(SessionInterface $session, ManagerRegistry $doctrine): Response
     {
-        #On récupere la session 'panier' si elle existe - sinon elle est créée avec un tableau vide
+        // On récupere la session 'panier' si elle existe - sinon elle est créée avec un tableau vide
         $panier = $session->get('panier', []);
-        #Variable tableau
+
       
-         // j'ajoute mon tableaux panier
+         // j'ajoute mon tableau panier
          $panier = $session->get('panier', []);
 
 
@@ -35,9 +35,7 @@ class CartController extends AbstractController
              }
          }
  
-
-        //  dd($panier);
-        #On envoie a la vue le panier enrichi avec les informations + le total du panier
+        // On envoie à la vue le panier enrichi avec les informations + le total du panier
         return $this->render('cart/index.html.twig', [
             'total' => $total,
             'panier' => $panier,
@@ -46,18 +44,15 @@ class CartController extends AbstractController
 
     }
 
-    /**
-     * @Route("panier/add/{id}/{origin}", name="cart_add")
-     */
+
+    #[Route('/panier/add/{id}/{origin}', name: 'cart_add')]
+
     public function cartAdd(Products $article, $origin, SessionInterface $session, ManagerRegistry $doctrine)
     {
-
-        // dd($article);
 
         #ETAPE 1 : on récupere la session 'panier' si elle existe - sinon elle est créée avec un tableau vide
         $panier = $session->get('panier', []);
 
-        // dd($panier);
 
         #ETAPE 2 : On vérifie si l'élément de session d'id $id existe, si oui on incrémente de 1 la quantité
         if(empty($panier[$article->getId()])){
@@ -78,9 +73,6 @@ class CartController extends AbstractController
         #ETAPE 3 : On remplace la variable de session panier par le nouveau tableau $panier
         $session->set('panier', $panier);
 
-        //dd($session->get('panier', []));
-
-        # FAIRE CE QUE VOUS VOULEZ ICI : Redirigé vers votre page boutique par exemple.
         if ($origin == "products_show"){
             $this->addFlash('cart_add_success', "Votre produit a bien été ajouté au panier !");
 
@@ -88,17 +80,15 @@ class CartController extends AbstractController
         }else{
             return $this->redirectToRoute($origin);
         }
-        // if ($origin == "products_show"){
-        //     return $this->redirectToRoute($origin, ['id' => $products->getId()]);
-        // }
+
         
         
 
     }
 
-    /**
-     * @Route("/panier/delete/{id}", name="cart_delete")
-     */
+
+    #[Route('/panier/delete/{id}', name: 'cart_delete')]
+
     public function delete($id, SessionInterface $session)
     {
         #On récupere la session 'panier' si elle existe - sinon elle est créée avec un tableau vide

@@ -190,4 +190,9 @@ main{
     .user_mobile{
         visibility: visible;
     }
+    .icone{
+        width:85px;
+        height:85px;
+        transition: transform .3s;
+    }
 }

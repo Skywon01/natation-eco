@@ -14,9 +14,9 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class PaymentController extends AbstractController
 {
-    /**
-     * @Route("/payment", name="app_payment")
-     */
+
+    #[Route('/payment', name: 'app_payment')]
+
     public function index(): Response
     {
         return $this->render('payment/index.html.twig', [
@@ -24,9 +24,9 @@ class PaymentController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/payment/checkout", name="checkout")
-     */
+
+    #[Route('/payment/checkout', name: 'checkout')]
+
     public function checkout($stripeSK, SessionInterface $session, ManagerRegistry $doctrine)
     {
         //Clé API Stripe à paramétrer dans le fichier .env et security.yaml
@@ -64,9 +64,8 @@ class PaymentController extends AbstractController
         return $this->redirect($session->url, 303);
     }
 
-    /**
-     * @Route("/payment/success", name="success_url")
-     */
+    #[Route('/payment/success', name: 'success_url')]
+
     public function successUrl(SessionInterface $session)
     {
         //Une fois le paiement effectué, on vide le panier
@@ -74,9 +73,8 @@ class PaymentController extends AbstractController
         return $this->render('payment/success.html.twig');
     }
 
-    /**
-     * @Route("/payment/cancel", name="cancel_url")
-     */
+    #[Route('/payment/cancel', name: 'cancel_url')]
+
     public function cancelUrl()
     {
         return $this->render('payment/cancel.html.twig');
