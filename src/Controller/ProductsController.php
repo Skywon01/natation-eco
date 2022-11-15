@@ -115,10 +115,10 @@ public function edit($id, ManagerRegistry $doctrine, Request $request): Response
 
 
     #[Route('/product/delete/{id}', name: 'product_delete')]
-
+    #[IsGranted('ROLE_ADMIN')]
     public function delete($id, ManagerRegistry $doctrine)
     {
-        $product = $doctrine->getRepository(Product::class)->find($id);
+        $product = $doctrine->getRepository(Products::class)->find($id);
 
         if(!$product)
         {
@@ -131,7 +131,7 @@ public function edit($id, ManagerRegistry $doctrine, Request $request): Response
 
         $this->addFlash("product_delete_ok", "Le produit ".$product->getName()." a bien été supprimé !");
 
-        return $this->redirectToRoute('index');
+        return $this->redirectToRoute('products_show_all');
     }
 
 }

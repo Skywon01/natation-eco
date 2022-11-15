@@ -6,15 +6,14 @@
 {% block main %}
     <h1>Modifier le produit</h1>
     <br>
-
     <div class="container">
-    {{ form_start(formProducts) }}
-         {{ form_row(formProducts.name) }}
-            {{ form_row(formProducts.price) }}
-            {{ form_row(formProducts.description) }}
-            {{ form_row(formProducts.category) }}
-            {{ form_row(formProducts.imageFile)}}
-    <input type="submit" class="command">       
-    {{ form_end(formProducts)}}
+        {{ form_start(formProducts) }}
+            {{ form_row(formProducts.name) }}
+                {{ form_row(formProducts.price) }}
+                {{ form_row(formProducts.description) }}
+                {{ form_row(formProducts.category) }}
+                {{ form_row(formProducts.imageFile)}}
+        <input type="submit" class="btn command rounded-pill">       
+        {{ form_end(formProducts)}}
     </div>
 {% endblock %}
