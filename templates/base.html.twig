@@ -2,6 +2,8 @@
 <html lang="fr-FR">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {% block description %}<meta name="description" content="Page d'accueil natation-eco.fr">{% endblock %}
         <title>{% block title %}Natation-eco{% endblock %}</title>
         
         {# CSS BOOTSTRAP 5 #}
@@ -31,7 +33,7 @@
 
 		<header  class="d-flex flex-row">
 			<div class="d-flex flex-column w-50" style="background: linear-gradient(to right, white, rgb(255, 255, 255, 0));">
-				<a href="{{ path('index') }}"><img id="logo"  style="height: 200px;" src={{ asset ("media/logo.svg") }} alt="logo"></a>
+				<a href="{{ path('index') }}"><img id="logo"   src={{ asset ("media/logo.svg") }} alt="logo"></a>
 				<a id="index" class="ms-4 fw-bolder d-none d-lg-block" href="{{ path('index') }}">natation-eco.fr</a>
 			</div>
 		</header>

@@ -1,18 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}S'inscrire{% endblock %}
+{% block description %}<meta name="description" content="Inscription">{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block main %}
     <h1>Veuillez entrer vos identifiants</h1>
 
     <aside class="col-6 m-auto mb-5">
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.name)}}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword.first) }}
-        {{ form_row(registrationForm.plainPassword.second) }}
+        {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.name)}}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword.first) }}
+            {{ form_row(registrationForm.plainPassword.second) }}
 
-        <button type="submit" class="btn command mt-3 rounded-pill">Inscription</button>
-    {{ form_end(registrationForm) }}
+            <button type="submit" class="btn command mt-3 rounded-pill">Inscription</button>
+        {{ form_end(registrationForm) }}
     </aside>
 {% endblock %}

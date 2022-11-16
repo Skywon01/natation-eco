@@ -1,15 +1,13 @@
 {% extends 'base.html.twig' %}
 
+{% block description %}<meta name="description" content="Réinitialisation de mot de passe">{% endblock %}
 {% block title %}Réinitialisation mot de passe{% endblock %}
-
-{% block body %}
-    
-    {% block main %}
+  
+{% block main %}
     <h1>Réinitialisez votre mot de passe</h1>
 
     {{ form_start(resetForm) }}
         {{ form_row(resetForm.plainPassword) }}
         <button class="command btn rounded-pill">Réinitialiser</button>
     {{ form_end(resetForm) }}
-{% endblock %}
 {% endblock %}

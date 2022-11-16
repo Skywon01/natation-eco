@@ -46,8 +46,9 @@ class ProductsType extends AbstractType
                             'image/jpeg',
                             'image/gif',
                             'image/png',
+                            'image/webp',
                         ],
-                        'mimeTypesMessage' => 'Le fichier doit être un jpg, gif ou png',
+                        'mimeTypesMessage' => 'Le fichier doit être un jpg, gif, png ou un webp',
                     ])
                 ]                                
             ])

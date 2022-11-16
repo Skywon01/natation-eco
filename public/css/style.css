@@ -31,6 +31,9 @@ h1{
     text-transform: uppercase;
 
 }
+#logo{
+    height: 200px;
+}
 
 .icone{
     width:35px;
@@ -178,9 +181,13 @@ main{
     .image_admin{
         width:25%;
     }
-    *{
-        font-size: xx-large;
+    .accueil-img{
+        width: 100%;
     }
+
+    /* *{
+        font-size: xx-large;
+    } */
     .img_panier{
         width: 50%;
     }
@@ -190,9 +197,12 @@ main{
     .user_mobile{
         visibility: visible;
     }
-    .icone{
+    /* .icone{
         width:85px;
         height:85px;
         transition: transform .3s;
+    } */
+    #logo{
+        height: 50px;
     }
 }

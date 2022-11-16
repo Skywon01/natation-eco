@@ -1,35 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajout de produits{% endblock %}
-
-{% block body %}
+{% block description %}<meta name="description" content="Ajouter un produit">{% endblock %}
+{% block title %}Ajouter un produit{% endblock %}
 
 {% block main %}
 
+    {% for message in app.flashes('products_add_success') %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Félicitations !</strong> {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
 
-{% for message in app.flashes('products_add_success') %}
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Félicitations !</strong> {{ message }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-{% endfor %}
+    <a href="{{ path('products_show_all') }}" class="btn command rounded-pill">Retour à l'administration</a>
 
-<a href="{{ path('products_show_all') }}" class="btn command rounded-pill">Retour à l'administration</a>
+    <h1>Ajouter votre produit</h1>
 
-<h1>Ajouter votre produit</h1>
+    <aside class="container w-50">
 
-<aside class="container w-50">
-
-    {{ form_start(formProducts) }}
-         {{ form_row(formProducts.name) }}
-            {{ form_row(formProducts.price) }}
-            {{ form_row(formProducts.description) }}
-            {{ form_row(formProducts.category) }}
-            {{ form_row(formProducts.imageFile)}}
-        <input type="submit" class="btn command rounded-pill">       
-    {{ form_end(formProducts)}}
+        {{ form_start(formProducts) }}
+            {{ form_row(formProducts.name) }}
+                {{ form_row(formProducts.price) }}
+                {{ form_row(formProducts.description) }}
+                {{ form_row(formProducts.category) }}
+                {{ form_row(formProducts.imageFile)}}
+            <input type="submit" class="btn command rounded-pill">       
+        {{ form_end(formProducts)}}
 
 </aside>
 
-{% endblock %}
 {% endblock %}

@@ -1,9 +1,10 @@
 {% extends "base.html.twig" %}
 
-
+{% block description %}<meta name="description" content="Erreur 404">{% endblock %}
+{% block title %}Erreur 404{% endblock %}
 
 {% block main %}
-<h1>Erreur 404</h1>
-<h2>La page doit être en train de se noyer!</h2>
-<a href="{{ path('index')}}" class="btn command rounded-pill mt-5 mb-5">Retour à l'accueil</a>
+    <h1>Erreur 404</h1>
+    <h2>La page doit être en train de se noyer!</h2>
+    <a href="{{ path('index')}}" class="btn command rounded-pill mt-5 mb-5">Retour à l'accueil</a>
 {% endblock %}
