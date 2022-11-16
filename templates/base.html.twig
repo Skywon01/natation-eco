@@ -2,7 +2,7 @@
 <html lang="fr-FR">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         {% block description %}<meta name="description" content="Page d'accueil natation-eco.fr">{% endblock %}
         <title>{% block title %}Natation-eco{% endblock %}</title>
         
@@ -22,6 +22,15 @@
         
         <link rel="stylesheet" href="{{ asset("js/script.js") }}">
 
+        {# JS Swup #}
+
+        <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>  
+        <script src="{{ asset("js/swup-script.js") }}"></script>
+
+        {# CSS Swup #}
+
+        <link rel="stylesheet" href="{{ asset("css/swup-style.css") }}">
+
         {% block css %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -30,7 +39,6 @@
         {% endblock %}
     </head>
     <body>
-
 		<header  class="d-flex flex-row">
 			<div class="d-flex flex-column w-50" style="background: linear-gradient(to right, white, rgb(255, 255, 255, 0));">
 				<a href="{{ path('index') }}"><img id="logo"   src={{ asset ("media/logo.svg") }} alt="logo"></a>
@@ -99,13 +107,14 @@
 
         {#====================== Navbar sur le côté ========================#}
     
+    <main id="swup" class="transition-fade">
+    <script>const swup = new Swup();</script>
 
-    <main>
     {% block main %}{% endblock %}
     
     {# Javascript personnalisé #}
     
-    <script src="{{ asset("js/script.js") }}"></script>
+    {# <script src="{{ asset("js/script.js") }}"></script> #}
     
     {# Javascript BOOTSTRAP #}
     
@@ -116,7 +125,7 @@
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     </main>
-    
+
     {# ===== Affichage modal CGV et Mentions légales ===== #}
     <div class="modal fade" id="modalcgv" tabindex="-1" aria-labelledby="modalcgv" aria-hidden="true">
         <div class="modal-dialog modal-xl">

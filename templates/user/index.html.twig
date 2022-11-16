@@ -20,14 +20,14 @@
         </article>
 
         <aside class="user_desktop col-3 d-flex flex-column">
-            <a href="{{ path('user_edit', { id: app.user.id }) }}" class="btn rounded-pill command mb-2" style="text-transform:none;">Modifier mes informations</a>
-            <a href="{{ path('app_forgot_password_request', { id: app.user.id }) }}" class="mb-2 btn rounded-pill command">Modifier mon mot de passe</a>
-            <a href="{{ path('user_delete', { id: app.user.id }) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer votre compte (cette action est irréversible)?')" class="mb-2 btn command_del rounded-pill bg-danger">Supprimer mon compte</a>
+            <a href="{{ path('user_edit', { id: app.user.id }) }}" class="btn rounded-pill command mb-2 transition-swipe" style="text-transform:none;">Modifier mes informations</a>
+            <a href="{{ path('app_forgot_password_request', { id: app.user.id }) }}" class="mb-2 btn rounded-pill command transition-swipe">Modifier mon mot de passe</a>
+            <a href="{{ path('user_delete', { id: app.user.id }) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer votre compte (cette action est irréversible)?')" class="mb-2 btn command_del rounded-pill bg-danger transition-swipe">Supprimer mon compte</a>
         </aside>
     </section>
     <aside class="user_mobile col-6 d-flex flex-column m-auto">
-        <a href="{{ path('user_edit', { id: app.user.id }) }}" class="btn rounded-pill command mb-2 text-nowrap" style="text-transform:none;">Modifier mes informations</a>
-        <a href="{{ path('app_forgot_password_request', { id: app.user.id }) }}" class="mb-2 btn rounded-pill command text-nowrap">Modifier mon mot de passe</a>
-        <a href="{{ path('user_delete', { id: app.user.id }) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer votre compte (cette action est irréversible)?')" class="mb-2 btn command_del rounded-pill bg-danger">Supprimer mon compte</a>
+        <a href="{{ path('user_edit', { id: app.user.id }) }}" class="btn rounded-pill command mb-2 text-nowrap transition-swipe" style="text-transform:none;">Modifier mes informations</a>
+        <a href="{{ path('app_forgot_password_request', { id: app.user.id }) }}" class="mb-2 btn rounded-pill command text-nowrap transition-swipe">Modifier mon mot de passe</a>
+        <a href="{{ path('user_delete', { id: app.user.id }) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer votre compte (cette action est irréversible)?')" class="mb-2 btn command_del rounded-pill bg-danger transition-swipe">Supprimer mon compte</a>
     </aside>
 {% endblock %}

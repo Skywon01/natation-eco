@@ -32,9 +32,9 @@
                     <td class="col-3">Prix : {{ products.price }} €</td>
                     <td>
                         <div class="d-flex mt-4 mb-4 flex-column">
-                            <a href="{{ path('products_show', {id: products.id}) }}" class="command btn rounded-pill mb-3" >Détails</a>
-                            <a href="{{ path('app_products_edit', {id: products.id}) }}" class="command btn rounded-pill mb-3" >Modifier</a>
-                            <a href="{{ path('product_delete', { id: products.id }) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer le produit (cette action est irréversible)?')" class="btn command_del rounded-pill bg-danger">Supprimer</a>
+                            <a href="{{ path('products_show', {id: products.id}) }}" class="command btn rounded-pill mb-3 transition-swipe" >Détails</a>
+                            <a href="{{ path('app_products_edit', {id: products.id}) }}" class="command btn rounded-pill mb-3 transition-swipe" >Modifier</a>
+                            <a href="{{ path('product_delete', { id: products.id }) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer le produit (cette action est irréversible)?')" class="btn command_del rounded-pill bg-danger transition-swipe">Supprimer</a>
                         </div>
                     </td>
                 </tr>

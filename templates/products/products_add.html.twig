@@ -12,7 +12,7 @@
         </div>
     {% endfor %}
 
-    <a href="{{ path('products_show_all') }}" class="btn command rounded-pill">Retour à l'administration</a>
+    <a href="{{ path('products_show_all') }}" class="btn command rounded-pill transition-swipe">Retour à l'administration</a>
 
     <h1>Ajouter votre produit</h1>
 
@@ -24,7 +24,7 @@
                 {{ form_row(formProducts.description) }}
                 {{ form_row(formProducts.category) }}
                 {{ form_row(formProducts.imageFile)}}
-            <input type="submit" class="btn command rounded-pill">       
+            <input type="submit" class="btn command rounded-pill transition-swipe">       
         {{ form_end(formProducts)}}
 
 </aside>

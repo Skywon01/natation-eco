@@ -26,7 +26,7 @@
             <p>{{ products.price }} €</p>
                                     
             {# <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /> #}
-            <a href="{{ path("cart_add", {id: products.id, origin:app.request.attributes.get('_route')}) }}" class="btn btn-primary rounded-pill command">Ajouter au panier</a>
+            <a href="{{ path("cart_add", {id: products.id, origin:app.request.attributes.get('_route')}) }}" class="btn btn-primary rounded-pill command transition-swipe">Ajouter au panier</a>
         </article>
     </section>
 

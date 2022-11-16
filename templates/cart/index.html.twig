@@ -23,7 +23,7 @@
             <p>{{ (item.article.price * item.qte)|number_format(2, ',', ' ') }} €</p>
 
 
-            <a href="{{ path('cart_delete', {id: item.article.id}) }}" class="command_del btn rounded-pill btn-danger menu mb-2" onclick="return confirm('Supprimer cet élément du panier ?');">Supprimer</a>
+            <a href="{{ path('cart_delete', {id: item.article.id}) }}" class="command_del btn rounded-pill btn-danger menu mb-2 transition-swipe" onclick="return confirm('Supprimer cet élément du panier ?');">Supprimer</a>
 
                                     
             {# <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /> #}
