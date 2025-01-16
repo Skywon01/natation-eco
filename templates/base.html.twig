@@ -107,7 +107,11 @@
         {#====================== Navbar sur le côté ========================#}
     
     <main id="swup" class="transition-fade">
-    <script>const swup = new Swup();</script>
+
+        {#    Swup    #}
+        <script src="https://unpkg.com/swup@4"></script>
+        <script>   const swup = new Swup(); </script>
+        {#   end Swup   #}
 
     {% block main %}{% endblock %}
     
