@@ -1,31 +1,3 @@
-index:
-   path: /
-   controller: App\Controller\DefaultController::index
-
-club:
-   path: /club
-   controller: App\Controller\ClubController::club
-
-equipement: 
-   path: /equipement
-   controller: App\Controller\EquipementController::equipement  
-
-nutrition: 
-   path: /nutrition
-   controller: App\Controller\NutritionController::nutrition
-
-panier:
-   path: /panier
-   controller: App\Controller\PanierController::panier
-
-compte:
-   path: /compte
-   controller: App\Controller\CompteController::compte
-
-homme:
-   path: /homme
-   controller: App\Controller\HommeController::homme
-
-femme:
-   path: /femme
-   controller: App\Controller\FemmeController::femme
+controllers:
+  resource: ../src/Controller/
+  type: attribute

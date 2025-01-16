@@ -6,10 +6,13 @@ use App\Entity\Products;
 use Doctrine\Persistence\ManagerRegistry;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
 
 class DefaultController extends AbstractController
 {
-    public function index(ManagerRegistry $doctrine)
+    #[Route('/', name: 'index')]
+    public function index(ManagerRegistry $doctrine):Response
     {
         $products = $doctrine->getRepository(Products::class)->findAll();
 
