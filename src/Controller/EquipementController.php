@@ -14,7 +14,7 @@ class EquipementController extends AbstractController
 
     #[Route('equipement/{id}', name: 'equipement_show')]
     public function equipement($id, ManagerRegistry $doctrine): Response
-    {   
+    {
         $category = $doctrine->getRepository(Category::class)->find($id);
         $products = $category->getProducts();
         return $this->render("equipement.html.twig", [

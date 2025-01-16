@@ -10,7 +10,7 @@ class ClubController extends AbstractController
 {
 
     #[Route('/club', name: 'club')]
-    public function club():Response
+    public function club(): Response
     {
         return $this->render("club.html.twig");
     }

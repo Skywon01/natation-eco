@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class HommeController extends AbstractController
 {
-    
+
     #[Route('hommes/{id}', name: 'homme_show')]
     public function homme($id, ManagerRegistry $doctrine): Response
     {

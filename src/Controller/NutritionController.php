@@ -14,7 +14,7 @@ class NutritionController extends AbstractController
 
     #[Route('nutrition/{id}', name: 'nutrition_show')]
     public function nutrition($id, ManagerRegistry $doctrine): Response
-    {   
+    {
         $category = $doctrine->getRepository(Category::class)->find($id);
         $products = $category->getProducts();
         return $this->render("nutrition.html.twig", [

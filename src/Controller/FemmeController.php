@@ -14,7 +14,7 @@ class FemmeController extends AbstractController
 
     #[Route('femmes/{id}', name: 'femme_show')]
     public function femme($id, ManagerRegistry $doctrine): Response
-    {   
+    {
         $category = $doctrine->getRepository(Category::class)->find($id);
         $products = $category->getProducts();
         return $this->render("article_femme.html.twig", [

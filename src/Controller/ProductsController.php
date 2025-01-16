@@ -26,17 +26,16 @@ class ProductsController extends AbstractController
 
 
     // Create
-    
+
     #[Route('/products/add', name: 'app_products_add')]
     public function add(Request $request, ManagerRegistry $doctrine): Response
-    {   
+    {
         $products = new Products;
 
         $formProducts = $this->createForm(ProductsType::class, $products);
         $formProducts->handleRequest($request);
 
-        if($formProducts->isSubmitted() && $formProducts->isValid())
-        {
+        if ($formProducts->isSubmitted() && $formProducts->isValid()) {
             $em = $doctrine->getManager();
             $em->persist($products);
             $em->flush();
@@ -59,7 +58,7 @@ class ProductsController extends AbstractController
     {
         $products = $doctrine->getRepository(Products::class)->find($id);
 
-        return $this->render('details/details.html.twig',[
+        return $this->render('details/details.html.twig', [
             'products' => $products
         ]);
     }
@@ -74,43 +73,39 @@ class ProductsController extends AbstractController
     {
         $products = $doctrine->getRepository(Products::class)->findAll();
 
-        return $this->render('products/products_admin.html.twig',[
+        return $this->render('products/products_admin.html.twig', [
             'products' => $products
         ]);
     }
 
 
-
 // Update
 
-#[Route('/product/edit/{id}', name: 'app_products_edit')]
-
-#[IsGranted('ROLE_ADMIN')]
-public function edit($id, ManagerRegistry $doctrine, Request $request): Response
-{
-    $product = $doctrine->getRepository(Products::class)->find($id);
-    $product->setUpdatedAt(new \DateTimeImmutable());
-
-
-    
-    $formProducts = $this->createForm(ProductsType::class, $product);
-    $formProducts->handleRequest($request);
-
-    if($formProducts->isSubmitted() && $formProducts->isValid())
+    #[Route('/product/edit/{id}', name: 'app_products_edit')]
+    #[IsGranted('ROLE_ADMIN')]
+    public function edit($id, ManagerRegistry $doctrine, Request $request): Response
     {
-        $em = $doctrine->getManager();
-        $em->flush();
+        $product = $doctrine->getRepository(Products::class)->find($id);
+        $product->setUpdatedAt(new \DateTimeImmutable());
 
-        $this->addFlash("product_edit_success", "Votre produit a bien été modifié!");
 
-        return $this->redirectToRoute('products_show_all');
+        $formProducts = $this->createForm(ProductsType::class, $product);
+        $formProducts->handleRequest($request);
+
+        if ($formProducts->isSubmitted() && $formProducts->isValid()) {
+            $em = $doctrine->getManager();
+            $em->flush();
+
+            $this->addFlash("product_edit_success", "Votre produit a bien été modifié!");
+
+            return $this->redirectToRoute('products_show_all');
+        }
+
+        return $this->render('products/products_edit.html.twig', [
+            'formProducts' => $formProducts->createView(),
+            'product' => $product
+        ]);
     }
-
-    return $this->render('products/products_edit.html.twig', [
-        'formProducts' => $formProducts->createView(),
-        'product' => $product
-    ]);
-}
 
 // Delete
 
@@ -120,12 +115,11 @@ public function edit($id, ManagerRegistry $doctrine, Request $request): Response
      */
     #[Route('/product/delete/{id}', name: 'product_delete')]
     #[IsGranted('ROLE_ADMIN')]
-    public function delete($id, ManagerRegistry $doctrine):Response
+    public function delete($id, ManagerRegistry $doctrine): Response
     {
         $product = $doctrine->getRepository(Products::class)->find($id);
 
-        if(!$product)
-        {
+        if (!$product) {
             throw new Exception("Aucun produit pour l'id : $id");
         }
 
@@ -133,7 +127,7 @@ public function edit($id, ManagerRegistry $doctrine, Request $request): Response
         $em->remove($product);
         $em->flush();
 
-        $this->addFlash("product_delete_ok", "Le produit ".$product->getName()." a bien été supprimé !");
+        $this->addFlash("product_delete_ok", "Le produit " . $product->getName() . " a bien été supprimé !");
 
         return $this->redirectToRoute('products_show_all');
     }

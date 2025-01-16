@@ -18,107 +18,102 @@ class UserController extends AbstractController
 {
 
     #[Route('/user', name: 'user_index')]
-public function index(ManagerRegistry $doctrine): Response
-{
-    $user = $doctrine->getRepository(User::class)->findAll();
-
-    return $this->render('user/index.html.twig', [
-        'user' => $user,
-    ]);
-}
-
-#[Route('/user/show/{id}', name: 'user_show')]
-public function show($id, ManagerRegistry $doctrine): Response
-{
-    $user = $doctrine->getRepository(User::class)->find($id);
-
-
-    return $this->render('user/index.html.twig',[
-        'user' => $user
-    ]);
-}
-
-
-
-#[Route('/user/add', name: 'user_add')]
-public function add(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, ManagerRegistry $doctrine): Response
-{
-    $user = new User;
-    $user->setCreatedAt(new \DateTimeImmutable());
-    $user->setUpdatedAt(new \DateTimeImmutable());
-
-
-    $formUser = $this->createForm(UserType::class, $user);
-    $formUser->handleRequest($request);
-
-    if($formUser->isSubmitted() && $formUser->isValid())
+    public function index(ManagerRegistry $doctrine): Response
     {
-        $user->setPassword(
-            $userPasswordHasher->hashPassword(
-                $user,
-                $formUser->get('plainPassword')->getData()
-            )
-        );
-        $entityManager = $doctrine->getManager();
+        $user = $doctrine->getRepository(User::class)->findAll();
 
-        $entityManager->persist($user);
-        $entityManager->flush();
-
-        $this->addFlash('user_add_success', "L'utilisateur ".$user->getName()." a bien été ajouté.");
-        
-        return $this->redirectToRoute('user_index');
+        return $this->render('user/index.html.twig', [
+            'user' => $user,
+        ]);
     }
 
-    return $this->render('form-add.html.twig', [
-        'formUser' => $formUser->createView()
-    ]);
+    #[Route('/user/show/{id}', name: 'user_show')]
+    public function show($id, ManagerRegistry $doctrine): Response
+    {
+        $user = $doctrine->getRepository(User::class)->find($id);
 
-}
+
+        return $this->render('user/index.html.twig', [
+            'user' => $user
+        ]);
+    }
+
+
+    #[Route('/user/add', name: 'user_add')]
+    public function add(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, ManagerRegistry $doctrine): Response
+    {
+        $user = new User;
+        $user->setCreatedAt(new \DateTimeImmutable());
+        $user->setUpdatedAt(new \DateTimeImmutable());
+
+
+        $formUser = $this->createForm(UserType::class, $user);
+        $formUser->handleRequest($request);
+
+        if ($formUser->isSubmitted() && $formUser->isValid()) {
+            $user->setPassword(
+                $userPasswordHasher->hashPassword(
+                    $user,
+                    $formUser->get('plainPassword')->getData()
+                )
+            );
+            $entityManager = $doctrine->getManager();
+
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('user_add_success', "L'utilisateur " . $user->getName() . " a bien été ajouté.");
+
+            return $this->redirectToRoute('user_index');
+        }
+
+        return $this->render('form-add.html.twig', [
+            'formUser' => $formUser->createView()
+        ]);
+
+    }
 
     /**
      * @throws Exception
      */
     #[Route('/user/edit/{id}', name: 'user_edit')]
-public function edit($id, ManagerRegistry $doctrine, Request $request): Response
-{
-    $user = $doctrine->getRepository(User::class)->find($id);
-
-
-    if(!$user)
+    public function edit($id, ManagerRegistry $doctrine, Request $request): Response
     {
-        throw new Exception("Pour d'utilisateur pour cet ID : $id");
+        $user = $doctrine->getRepository(User::class)->find($id);
+
+
+        if (!$user) {
+            throw new Exception("Pour d'utilisateur pour cet ID : $id");
+        }
+
+        $user->setUpdatedAt(new \DateTimeImmutable());
+
+        $formUser = $this->createForm(UserType::class, $user);
+        $formUser->handleRequest($request);
+
+        if ($formUser->isSubmitted() && $formUser->isValid()) {
+            $em = $doctrine->getManager();
+            $em->flush();
+
+            $this->addFlash("user_edit_ok", "Vos données ont bien été modifiées !");
+
+            return $this->redirectToRoute('index');
+        }
+
+        return $this->render('user/user-edit.html.twig', [
+            'formUser' => $formUser->createView()
+        ]);
     }
-
-    $user->setUpdatedAt(new \DateTimeImmutable());
-    
-    $formUser = $this->createForm(UserType::class, $user);
-    $formUser->handleRequest($request);
-
-    if($formUser->isSubmitted() && $formUser->isValid())
-    {
-        $em = $doctrine->getManager();
-        $em->flush();
-
-        $this->addFlash("user_edit_ok", "Vos données ont bien été modifiées !");
-
-        return $this->redirectToRoute('index');
-    }
-
-    return $this->render('user/user-edit.html.twig', [
-        'formUser' => $formUser->createView()
-    ]);
-}
 
     /**
      * @throws Exception
      */
     #[Route('/user/delete/{id}', name: 'user_delete')]
-    public function delete($id, ManagerRegistry $doctrine):RedirectResponse
+    public function delete($id, ManagerRegistry $doctrine): RedirectResponse
     {
         $user = $doctrine->getRepository(User::class)->find($id);
 
-        if(!$user)
-        {
+        if (!$user) {
             throw new Exception("Aucun utilisateur pour l'id : $id");
         }
 
@@ -126,11 +121,10 @@ public function edit($id, ManagerRegistry $doctrine, Request $request): Response
         $em->remove($user);
         $em->flush();
 
-        $this->addFlash("user_delete_ok", "L'utilisateur ".$user->getName()." a bien été supprimé !");
+        $this->addFlash("user_delete_ok", "L'utilisateur " . $user->getName() . " a bien été supprimé !");
 
         return $this->redirectToRoute('index');
     }
-
 
 
 }

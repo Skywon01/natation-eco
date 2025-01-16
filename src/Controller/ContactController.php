@@ -17,34 +17,31 @@ class ContactController extends AbstractController
 {
 
     #[Route('/contact', name: 'contact')]
-
     public function index(Request $request, ManagerRegistry $doctrine, MailerInterface $mailer): Response
     {
 
         $formContact = $this->createFormBuilder()
-        ->add('email', EmailType::class)
-        ->add('objet', TextType::class)
-        ->add('message', TextareaType::class)
-        ->getForm()
-        ;
+            ->add('email', EmailType::class)
+            ->add('objet', TextType::class)
+            ->add('message', TextareaType::class)
+            ->getForm();
 
         $formContact->handleRequest($request);
 
-        if($formContact->isSubmitted() && $formContact->isValid())
-        {
+        if ($formContact->isSubmitted() && $formContact->isValid()) {
             # Envoi de l'email
             $email = (new TemplatedEmail())
-            ->from("to@example.com")
-            ->to('contact@monsite.com')
-            ->subject('Demande de contact !')
-            ->htmlTemplate('emails/contact.html.twig')
-            ->context([
-                'contact' => "mail"
-            ]);
+                ->from("to@example.com")
+                ->to('contact@monsite.com')
+                ->subject('Demande de contact !')
+                ->htmlTemplate('emails/contact.html.twig')
+                ->context([
+                    'contact' => "mail"
+                ]);
 
-        $mailer->send($email);
+            $mailer->send($email);
 
-        // $this->addFlash('email_sent', "L'email a bien été envoyé !");
+            // $this->addFlash('email_sent', "L'email a bien été envoyé !");
 
         }
 

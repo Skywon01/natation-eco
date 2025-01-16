@@ -12,11 +12,11 @@ use Symfony\Component\Routing\Attribute\Route;
 class DefaultController extends AbstractController
 {
     #[Route('/', name: 'index')]
-    public function index(ManagerRegistry $doctrine):Response
+    public function index(ManagerRegistry $doctrine): Response
     {
         $products = $doctrine->getRepository(Products::class)->findAll();
 
-        return $this->render("index.html.twig",[
+        return $this->render("index.html.twig", [
             'products' => $products
         ]);
     }

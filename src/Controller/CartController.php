@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Products;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -47,7 +48,7 @@ class CartController extends AbstractController
 
     #[Route('/panier/add/{id}/{origin}', name: 'cart_add')]
 
-    public function cartAdd(Products $article, $origin, SessionInterface $session, ManagerRegistry $doctrine)
+    public function cartAdd(Products $article, $origin, SessionInterface $session, ManagerRegistry $doctrine): RedirectResponse
     {
 
         #ETAPE 1 : on récupere la session 'panier' si elle existe - sinon elle est créée avec un tableau vide
