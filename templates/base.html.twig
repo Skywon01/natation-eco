@@ -74,7 +74,7 @@
                             <li class="align-self-center">
                                 <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="ms-2 icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
                                 <a  href="{{ path('cart_index') }}"><img class=" ms-2 icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
-                                {% if is_granted('ROLE_ADMIN') %}
+                            {% if is_granted('ROLE_ADMIN') %}
                                 <a  href="{{ path('products_show_all') }}"><img class="ms-2 icone" src={{ asset("media/admin.svg") }} alt="Mon compte"></a>
                                 {% endif %}
                             </li>
