@@ -52,7 +52,7 @@
             <article>
                 <h6 class="d-none">Titre caché</h6>
                 <p class="contenant">
-                    <a href="{{ path('club') }}"><img src={{ asset("media/club.webp")}} alt="le club" class="accueil-img"></a>
+                    <a href="{{ path('club') }}"><img src="{{ asset("media/club.webp")}}" alt="le club" class="accueil-img"></a>
                     <a class="texte_centrer menu nav-link" href="{{ path('club') }}">Le club</a>
                 </p>
             </article>
@@ -60,22 +60,22 @@
         <section class="ctn_centre">
             <h6 class="d-none">Titre caché</h6>
             <p class="contenant">
-                <a href="{{ path('femme_show', {id: 2}) }}"><img src={{ asset("media/article-femme.webp")}} alt="maillots de bain femme" class="accueil-img"></a>
+                <a href="{{ path('femme_show', {id: 2}) }}"><img src="{{ asset("media/article-femme.webp")}}" alt="maillots de bain femme" class="accueil-img"></a>
                 <a class="texte_centrer menu nav-link nav-link" href="{{ path('femme_show', {id: 2}) }}">Maillots de bain femme</a>
             </p>
             <p class="contenant">
-                <a href="{{ path('homme_show', {id: 1}) }}"><img src={{ asset("media/article-homme.webp")}} alt="maillots de bain homme" class="accueil-img"></a>
+                <a href="{{ path('homme_show', {id: 1}) }}"><img src="{{ asset("media/article-homme.webp")}}" alt="maillots de bain homme" class="accueil-img"></a>
                 <a class="texte_centrer menu nav-link" href="{{ path('homme_show', {id: 1}) }}">Maillots de bain homme</a>
             </p>
         </section>
         <section class="ctn_centre">
             <h6 class="d-none">Titre caché</h6>
             <p class="contenant">
-                <a href="{{ path('nutrition_show',{id: 3}) }}"><img src={{ asset("media/nutrition.webp")}} alt="nutrition" class="accueil-img"></a>
+                <a href="{{ path('nutrition_show',{id: 3}) }}"><img src="{{ asset("media/nutrition.webp")}}" alt="nutrition" class="accueil-img"></a>
                 <a class="texte_centrer menu nav-link" href="{{ path('nutrition_show',{id: 3}) }}">Nutrition</a>
             </p>
             <p class="contenant">
-                <a href="{{ path('equipement_show', {id:4}) }}"><img src={{ asset("media/equipement.webp")}} alt="equipement" class="accueil-img"></a>
+                <a href="{{ path('equipement_show', {id:4}) }}"><img src="{{ asset("media/equipement.webp")}}" alt="equipement" class="accueil-img"></a>
                 <a class="texte_centrer menu nav-link" href="{{ path('equipement_show', {id:4}) }}">Equipement</a>
             </p>
         </section>
@@ -86,15 +86,16 @@
             <hr>
         </section>
         {# ========== Carousel ========== #}
-        <aside id="carousel" class="carousel mb-5" data-flickity='{ "autoPlay": true, "wrapAround": true, "autoPlay": true, "cellAlign": "center", "contain": true, "pageDots": false }'>
+
+            <aside id="carousel" class="carousel mb-5" data-flickity='{ "autoPlay": true, "wrapAround": true, "autoPlay": true, "cellAlign": "center", "contain": true, "pageDots": false }'>
             {% for products in products %}
                 <aside class="card carousel-cell" style="width: 18rem;">
-                    <img src={{ vich_uploader_asset(products, 'imageFile') }} class="card-img-top" alt="image d'article" >
+                    <img src="{{ vich_uploader_asset(products, 'imageFile') }}" class="card-img-top" alt="image d'article" >
                     <aside class="card-body">
                         <h5 class="card-title">{{ products.name}}</h5>
                         <p>Prix : {{ products.price }} €</p>
                         <a href="{{ path('products_show', {id: products.id}) }}" class="btn rounded-pill command">Détails</a>
-                    </aside> 
+                    </aside>
                 </aside>
             {% endfor %}
         </aside>

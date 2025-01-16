@@ -27,7 +27,7 @@
         <tbody class="bg-light">
             {% for products in products %}
                 <tr class="border">
-                    <td class="d-lg-block"><img class="image_admin col-3 d-none d-lg-block" src={{ asset("uploads/")}}{{ products.imageName }} alt="image d'article"></td>
+                    <td class="d-lg-block"><img class="image_admin col-3 d-none d-lg-block" src="{{ asset("uploads/")}}{{ products.imageName }}" alt="image d'article"></td>
                     <td><h5 class="card-title">{{ products.name}}</h5></td>
                     <td class="col-3">Prix : {{ products.price }} €</td>
                     <td>

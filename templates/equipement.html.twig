@@ -10,7 +10,7 @@
     {% for product in product %}
         <section class="d-inline-flex pres_article mb-3">
             <aside class="card" style="width: 18rem;">
-                <img src={{ asset("uploads/")}}{{ product.imageName }} class="card-img-top" alt="image d'article">
+                <img src="{{ asset("uploads/")}}{{ product.imageName }}" class="card-img-top" alt="image d'article">
                 <aside class="card-body">
                     <h5 class="card-title">{{ product.name}}</h5>
                     <p>Prix : {{ product.price }} €</p>
