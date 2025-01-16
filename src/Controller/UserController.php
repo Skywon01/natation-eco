@@ -6,7 +6,9 @@ use App\Entity\User;
 use App\Form\UserType;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +19,7 @@ class UserController extends AbstractController
     /**
      * @Route("/user", name="user_index")
      */
-public function index(ManagerRegistry $doctrine)
+public function index(ManagerRegistry $doctrine): Response
 {
     $user = $doctrine->getRepository(User::class)->findAll();
 
@@ -29,7 +31,7 @@ public function index(ManagerRegistry $doctrine)
 /**
  * @Route("user/show/{id}", name="user_show")
  */
-public function show($id, ManagerRegistry $doctrine)
+public function show($id, ManagerRegistry $doctrine): Response
 {
     $user = $doctrine->getRepository(User::class)->find($id);
 
@@ -88,7 +90,7 @@ public function edit($id, ManagerRegistry $doctrine, Request $request): Response
 
     if(!$user)
     {
-        throw new \Exception("Pour d'utilisateur pour cet ID : $id");
+        throw new Exception("Pour d'utilisateur pour cet ID : $id");
     }
 
     $user->setUpdatedAt(new \DateTimeImmutable());
@@ -113,14 +115,15 @@ public function edit($id, ManagerRegistry $doctrine, Request $request): Response
 
     /**
      * @Route("user/delete/{id}", name="user_delete")
+     * @throws Exception
      */
-    public function delete($id, ManagerRegistry $doctrine)
+    public function delete($id, ManagerRegistry $doctrine):RedirectResponse
     {
         $user = $doctrine->getRepository(User::class)->find($id);
 
         if(!$user)
         {
-            throw new \Exception("Aucun utilisateur pour l'id : $id");
+            throw new Exception("Aucun utilisateur pour l'id : $id");
         }
 
         $em = $doctrine->getManager();

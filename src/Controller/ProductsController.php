@@ -6,12 +6,13 @@ use App\Entity\Products;
 use App\Form\ProductsType;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Stripe\Product;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class ProductsController extends AbstractController
 {
@@ -54,7 +55,7 @@ class ProductsController extends AbstractController
     // Read
 
     #[Route('/products/show/{id}', name: 'products_show')]
-    public function show($id, ManagerRegistry $doctrine)
+    public function show($id, ManagerRegistry $doctrine): Response
     {
         $products = $doctrine->getRepository(Products::class)->find($id);
 
@@ -69,7 +70,7 @@ class ProductsController extends AbstractController
     #[Route('/products/show_all', name: 'products_show_all')]
     // Uniquement pour les administrateurs
     #[IsGranted('ROLE_ADMIN')]
-    public function showAll(ManagerRegistry $doctrine)
+    public function showAll(ManagerRegistry $doctrine): Response
     {
         $products = $doctrine->getRepository(Products::class)->findAll();
 
@@ -114,15 +115,18 @@ public function edit($id, ManagerRegistry $doctrine, Request $request): Response
 // Delete
 
 
+    /**
+     * @throws Exception
+     */
     #[Route('/product/delete/{id}', name: 'product_delete')]
     #[IsGranted('ROLE_ADMIN')]
-    public function delete($id, ManagerRegistry $doctrine)
+    public function delete($id, ManagerRegistry $doctrine):Response
     {
         $product = $doctrine->getRepository(Products::class)->find($id);
 
         if(!$product)
         {
-            throw new \Exception("Aucun produit pour l'id : $id");
+            throw new Exception("Aucun produit pour l'id : $id");
         }
 
         $em = $doctrine->getManager();
