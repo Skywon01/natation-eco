@@ -16,9 +16,8 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserController extends AbstractController
 {
-    /**
-     * @Route("/user", name="user_index")
-     */
+
+    #[Route('/user', name: 'user_index')]
 public function index(ManagerRegistry $doctrine): Response
 {
     $user = $doctrine->getRepository(User::class)->findAll();
@@ -28,9 +27,7 @@ public function index(ManagerRegistry $doctrine): Response
     ]);
 }
 
-/**
- * @Route("user/show/{id}", name="user_show")
- */
+#[Route('/user/show/{id}', name: 'user_show')]
 public function show($id, ManagerRegistry $doctrine): Response
 {
     $user = $doctrine->getRepository(User::class)->find($id);
@@ -43,9 +40,7 @@ public function show($id, ManagerRegistry $doctrine): Response
 
 
 
-/**
- * @Route("/user/add", name="user_add")
- */
+#[Route('/user/add', name: 'user_add')]
 public function add(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, ManagerRegistry $doctrine): Response
 {
     $user = new User;
@@ -80,9 +75,10 @@ public function add(Request $request, UserPasswordHasherInterface $userPasswordH
 
 }
 
-/**
- * @Route("/user/edit/{id}", name="user_edit")
- */
+    /**
+     * @throws Exception
+     */
+    #[Route('/user/edit/{id}', name: 'user_edit')]
 public function edit($id, ManagerRegistry $doctrine, Request $request): Response
 {
     $user = $doctrine->getRepository(User::class)->find($id);
@@ -114,9 +110,9 @@ public function edit($id, ManagerRegistry $doctrine, Request $request): Response
 }
 
     /**
-     * @Route("user/delete/{id}", name="user_delete")
      * @throws Exception
      */
+    #[Route('/user/delete/{id}', name: 'user_delete')]
     public function delete($id, ManagerRegistry $doctrine):RedirectResponse
     {
         $user = $doctrine->getRepository(User::class)->find($id);
