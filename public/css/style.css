@@ -172,9 +172,9 @@ main{
     .ctn_centre{
         flex-direction: column;
     }
-    #img_article{
-        width:50%;
-    }
+    /*#img_article{*/
+    /*    width:50%;*/
+    /*}*/
     #img_compte{
         width:50%;
     }

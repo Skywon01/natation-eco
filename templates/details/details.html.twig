@@ -13,21 +13,21 @@
             {% endfor %}
 
     <h1 class="titre_resp">Détails</h1>
-
-    <section class="container mb-5" id="ctn_art">
-        <article class="detail_responsive">
-            <img id="img_article" src="{{ asset("uploads/")}}{{ products.imageName }}" alt="">
+    <section class="container border border-1 d-md-flex pb-5">
+        <article class="">
+            <img id="img_article" class="w-md-25 w-50" src="{{ asset("uploads/")}}{{ products.imageName }}" alt="">
         </article>
-        <article id="article">
+        <article id="article" class="text-start border border-2 p-2 mt-5 rounded-1">
             <h2>{{ products.name }}</h2>
             <h3 id="desc_art">Description du produit</h3>
             <p>{{ products.description}}</p>
             <h3 id="prix">Prix</h3>
             <p>{{ products.price }} €</p>
-                                    
+
             {# <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /> #}
             <a href="{{ path("cart_add", {id: products.id, origin:app.request.attributes.get('_route')}) }}" class="btn btn-primary rounded-pill command transition-swipe">Ajouter au panier</a>
         </article>
     </section>
+
 
 {% endblock %}
