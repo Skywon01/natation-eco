@@ -27,12 +27,12 @@ h1{
     color:#707070;
 }
 #index{
-    color:var(--color-1);
+    color:#233b7b;
     text-transform: uppercase;
 
 }
 #logo{
-    height: 200px;
+    height: 64px;
 }
 
 .icone{
@@ -203,6 +203,6 @@ main{
         transition: transform .3s;
     } */
     #logo{
-        height: 50px;
+        height: 36px;
     }
 }

@@ -1,42 +1,42 @@
 {% extends "base.html.twig" %}
 
-{% block description %}<meta name="description" content="Le club">{% endblock %}
+{% block description %}
+    <meta name="description" content="Le club">{% endblock %}
 {% block title %}Le club{% endblock %}
 
 
 {% block main %}
 
-<h1>Présentation du club</h1>
+    <h1>Le club des Dauphins</h1>
 
-<section class="row">
-    <h6 class="d-none">Titre caché</h6>
-    <div class="col-12 col-lg-6 d-flex align-items-lg-center">
-        <p>
-        Il est depuis l'origine l’un des très grands clubs de natation, sur lequel s'est naturellement greffée, il y a quelques années, une forte section de triathlon. Il est le seul club auquel la Fédération Française de Natation ait attribué le prestigieux label "Club Formateur".
+    <section class="row">
+        <h6 class="d-none">Titre caché</h6>
+        <div class="col-12 col-lg-6 d-flex align-items-lg-center">
+            <p class=" text-end">
+                Depuis sa création en 1989, le Club des Dauphins de la Piscine Municipale accueille des passionnés de
+                natation de tous âges, des enfants aux adultes, pour s’entraîner et se dépasser dans une ambiance
+                conviviale. Dédié à la compétition, le club offre des entraînements classiques et rigoureux, encadrés
+                par des entraîneurs expérimentés. Que ce soit pour perfectionner leur technique ou atteindre des
+                objectifs ambitieux, les nageurs bénéficient d’un accompagnement adapté à leur niveau et à leurs
+                aspirations.</p>
+        </div>
+        <div class="col-12 col-lg-6">
+            <img src="{{ asset("media/swimming-pool.webp") }}" alt="piscine" class="w-100 rounded img-fluid mb-5">
+        </div>
+    </section>
 
-        Le Club est affilié à la Fédération Française de Natation ainsi qu'à la Fédération Française de Triathlon et participe aux épreuves sportives organisées par ces deux fédérations.
-
-        Le club programme la pratique de la natation et du triathlon à tous les niveaux, du loisir à la compétition. Il propose à ses membres divers entraînements encadrés par des professionnels.
-
-        Au Centre Roger Le Gall, 34 Boulevard Carnot, dans le 12e arrondissement de Paris, les membres du Club ont accès à toutes les activités du Club aux heures attribuées par la mairie. Le Club des Nageurs prône la pratique sportive à tous les niveaux, du loisir à la compétition.
+    <section class="row">
+        <h6 class="d-none">Titre caché</h6>
+        <div class="col-12 col-lg-6">
+            <img src="{{ asset("media/swimming-pool-2.webp") }}" alt="piscine" class="w-100 rounded img-fluid mb-5">
+        </div>
+        <p class="col-12 col-lg-6 d-flex align-items-lg-center text-start">
+            Fort d’une longue tradition d’excellence, le club a régulièrement remporté des médailles lors de
+            compétitions régionales et nationales, devenant ainsi un acteur incontournable du monde de la natation
+            locale. Au-delà des performances sportives, le Club des Dauphins se distingue par son esprit d’équipe et ses
+            valeurs de partage. Rejoindre ce club, c’est intégrer une véritable famille de nageurs motivés, unie par la
+            passion de l’eau et le goût du défi.
         </p>
-    </div>
-    <div class="col-12 col-lg-6">
-        <img src="{{ asset("media/swimming-pool.webp") }}" alt="piscine" class="w-100 rounded img-fluid mb-5">
-    </div>
-</section>
-
-<section class="row">
-    <h6 class="d-none">Titre caché</h6>
-    <div class="col-12 col-lg-6">
-        <img src="{{ asset("media/swimming-pool-2.webp") }}" alt="piscine" class="w-100 rounded img-fluid mb-5">
-    </div>
-    <p class="col-12 col-lg-6 d-flex align-items-lg-center">
-    Les deux axes d’activités que sont le loisir et la compétition y sont complémentaires, non opposés.
-     Le Club n’accueille pas de nageur professionnel.Par sa politique sportive, le Club recherche avant tout l’épanouissement personnel de tous ses membres.
-
-    Il a pour objectif de donner le goût d’une pratique sportive régulière dès le plus jeune âge à tous ses membres, sans qu’ils aient à sacrifier études ou vie professionnelle. Le Club se veut une école de la vie où tous les âges, tous les milieux sociaux et toutes les nationalités se côtoient.Le Club des Nageurs de Paris propose à ses adhérents que la natation soit pour eux un sport pour une meilleure vie, un sport pour toute la vie.
-    </p>
-</section>
+    </section>
 
 {% endblock %}
