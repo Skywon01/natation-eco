@@ -40,7 +40,7 @@
     <body>
 		<header  class="d-flex flex-row">
 			<div class="d-flex flex-column w-50" style="background: linear-gradient(to right, white, rgb(255, 255, 255, 0));">
-				<a href="{{ path('index') }}"><img id="logo"   src={{ asset ("media/logo.svg") }} alt="logo"></a>
+				<a href="{{ path('index') }}"><img id="logo"   src="{{ asset ("media/logo.svg") }}" alt="logo"></a>
 				<a id="index" class="ms-4 fw-bolder d-none d-lg-block" href="{{ path('index') }}">natation-eco.fr</a>
 			</div>
 		</header>
@@ -71,16 +71,16 @@
                         </li>
                             {% if is_granted('ROLE_USER') %}
                             <li class="align-self-center">
-                                <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="ms-2 icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
-                                <a  href="{{ path('cart_index') }}"><img class=" ms-2 icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
+                                <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="ms-2 icone" src="{{ asset("media/compte.png") }}" alt="Mon compte"></a>
+                                <a  href="{{ path('cart_index') }}"><img class=" ms-2 icone" src="{{ asset("media/panier.png") }}" alt="Panier"></a>
                             {% if is_granted('ROLE_ADMIN') %}
-                                <a  href="{{ path('products_show_all') }}"><img class="ms-2 icone" src={{ asset("media/admin.svg") }} alt="Mon compte"></a>
+                                <a  href="{{ path('products_show_all') }}"><img class="ms-2 icone" src="{{ asset("media/admin.svg") }}" alt="Mon compte"></a>
                                 {% endif %}
                             </li>
                             {% else %}
                             <li class="align-self-center">
-                                <a  href="{{ path('app_login') }}"><img class="ms-2 icone" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
-                                <a  href="{{ path('cart_index') }}"><img class="ms-2 icone" src={{ asset("media/panier.png") }} alt="Panier"></a>
+                                <a  href="{{ path('app_login') }}"><img class="ms-2 icone" src="{{ asset("media/compte.png") }}" alt="Mon compte"></a>
+                                <a  href="{{ path('cart_index') }}"><img class="ms-2 icone" src="{{ asset("media/panier.png") }}" alt="Panier"></a>
                             </li>
                             {% endif %}
                     </ul>
@@ -92,15 +92,15 @@
         
         <div class="position-fixed mt-5" id="nav_bar">
             <div class="m-auto">
-                <a  href="{{ path('club') }}"><img class="icone_nav_bar mt-1" src={{ asset("media/club.png") }} alt="Club"></a>
+                <a  href="{{ path('club') }}"><img class="icone_nav_bar mt-1" src="{{ asset("media/club.png") }}" alt="Club"></a>
                 <hr>
                 {% if is_granted('ROLE_USER') %}
-                <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="icone_nav_bar" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
+                <a  href="{{ path('user_show',{id: app.user.id}) }}"><img class="icone_nav_bar" src="{{ asset("media/compte.png") }}" alt="Mon compte"></a>
                 {% else %}
-                <a  href="{{ path('app_login') }}"><img class="icone_nav_bar" src={{ asset("media/compte.png") }} alt="Mon compte"></a>
+                <a  href="{{ path('app_login') }}"><img class="icone_nav_bar" src="{{ asset("media/compte.png") }}" alt="Mon compte"></a>
                 {% endif %}
                 <hr>
-                <a  href="{{ path('cart_index') }}"><img class="icone_nav_bar mb-1" src={{ asset("media/panier.png") }} alt="Panier"></a>
+                <a  href="{{ path('cart_index') }}"><img class="icone_nav_bar mb-1" src="{{ asset("media/panier.png") }}" alt="Panier"></a>
             </div>
         </div>
 
@@ -424,7 +424,7 @@
     <footer class="m-auto">
         <section class="d-flex m-auto">
             <h6 class="d-none">Titre caché</h6>
-            <a id="logo_footer" class="m-auto" href="{{ path('index') }}"><img style="width:150px" class="m-auto" src={{ asset("media/logo.svg") }} alt="logo"></a>
+            <a id="logo_footer" class="m-auto" href="{{ path('index') }}"><img style="width:150px" class="m-auto" src="{{ asset("media/logo.svg") }}" alt="logo"></a>
         </section>
         {% if is_granted('ROLE_USER') %}
         
