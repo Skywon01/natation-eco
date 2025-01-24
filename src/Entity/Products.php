@@ -10,9 +10,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
 #[ORM\Entity(repositoryClass: ProductsRepository::class)]
-/**
- * @Vich\Uploadable
- */
+#[Vich\Uploadable]
 class Products
 {
     #[ORM\Id]
@@ -35,11 +33,9 @@ class Products
     #[ORM\Column(length: 255)]
     private ?string $imageName = null;
 
-    /**
-     * @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName")
-     * @var File|null
-     */
-    private $imageFile;
+
+    #[Vich\UploadableField(mapping:"product_image", fileNameProperty: "imageName")]
+    private ?File $imageFile = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     private ?Category $Category = null;
@@ -96,23 +92,26 @@ class Products
         return $this->imageName;
     }
 
-    public function setImageName(string $imageName): self
+    public function setImageName(?string $imageName): void
     {
         $this->imageName = $imageName;
+    }
 
-        return $this;
+
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
     }
 
     public function getImageFile(): ?File
     {
         return $this->imageFile;
-    }
-
-    public function setImageFile(?File $imageFile = null): self
-    {
-        $this->imageFile = $imageFile;
-
-        return $this;
     }
 
     public function getCategory(): ?Category

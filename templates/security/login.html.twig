@@ -6,7 +6,7 @@
 {% block main %}
 
     <h1 class="text-nowrap text-center">Veuillez vous connecter</h1>
-    <section class="container col-6"> 
+    <section class="container col-md-3">
         <form method="post">
             {% if error %}
                 <div class="alert alert-danger mt-3">Identifiants incorrects, veuillez réessayer.</div>
@@ -35,8 +35,8 @@
             #}
         </form>
     </section>
-    <section class="container mb-5" style="col-6">
-        <p>Si vous n'avez pas de compte veuillez vous inscrire ici -></p>
-        <a href="{{ path('app_register') }}" class="btn command rounded-pill transition-swipe" >Inscription</a>
+    <section class="container mb-5 col-6" >
+        <p>Pas encore de compte?</p>
+        <a href="{{ path('app_register') }}" class="btn command rounded-pill transition-swipe" >Inscrivez-vous</a>
     </section>
 {% endblock %}
