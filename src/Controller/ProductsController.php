@@ -42,7 +42,7 @@ class ProductsController extends AbstractController
 
             $this->addFlash('products_add_success', "Votre produit a bien été ajouté !");
 
-            return $this->redirectToRoute('app_products_add');
+            return $this->redirectToRoute('products_show_all');
         }
 
         return $this->render('products/products_add.html.twig', [

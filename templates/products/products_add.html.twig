@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block description %}<meta name="description" content="Ajouter un produit">{% endblock %}
+{% block description %}
+    <meta name="description" content="Ajouter un produit">{% endblock %}
 {% block title %}Ajouter un produit{% endblock %}
 
 {% block main %}
@@ -12,22 +13,23 @@
         </div>
     {% endfor %}
 
-    <a href="{{ path('products_show_all') }}" class="btn command rounded-pill transition-swipe">Retour à l'administration</a>
+    <a href="{{ path('products_show_all') }}" class="btn command rounded-pill mt-5 transition-swipe">Retour à
+        l'administration</a>
 
     <h1>Ajouter votre produit</h1>
 
     <aside class="container w-50">
 
         {{ form_start(formProducts) }}
-            {{ form_row(formProducts.name) }}
-                {{ form_row(formProducts.price) }}
-                {{ form_row(formProducts.description) }}
-                {{ form_row(formProducts.category) }}
-                {{ form_row(formProducts.imageFile)}}
-                {{ form_row(formProducts.stock)}}
-            <input type="submit" class="btn command rounded-pill transition-swipe">       
-        {{ form_end(formProducts)}}
+        {{ form_row(formProducts.name) }}
+        {{ form_row(formProducts.price) }}
+        {{ form_row(formProducts.description) }}
+        {{ form_row(formProducts.category) }}
+        {{ form_row(formProducts.imageFile) }}
+        {{ form_row(formProducts.stock) }}
+        <input type="submit" class="btn command rounded-pill mb-5 transition-swipe">
+        {{ form_end(formProducts) }}
 
-</aside>
+    </aside>
 
 {% endblock %}

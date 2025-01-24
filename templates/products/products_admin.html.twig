@@ -1,44 +1,67 @@
 {% extends "base.html.twig" %}
 
-{% block description %}<meta name="description" content="Administration produit">{% endblock %}
+{% block description %}
+    <meta name="description" content="Administration produit">{% endblock %}
 {% block title %}Administration produit{% endblock %}
 
 {% block main %}
 
-    {% for message in app.flashes('product_edit_success') %}
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Félicitations !</strong> {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+    {% for type, messages in {
+        'product_delete_ok': 'alert-danger',
+        'products_add_success': 'alert-success',
+        'product_edit_success': 'alert-success'
+    } %}
+        {% for message in app.flashes(type) %}
+            <div class="container col-md-6 mt-5">
+
+            <div class="alert {{ messages }} alert-dismissible fade show" role="alert">
+                <strong>Félicitations !</strong> {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            </div>
+        {% endfor %}
     {% endfor %}
 
-    {% for message in app.flashes('product_delete_ok') %}
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Félicitations !</strong> {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    {% endfor %}
+{#    {% for message in app.flashes('product_delete_ok') %}#}
+{#        <div class="alert alert-danger alert-dismissible fade show" role="alert">#}
+{#            <strong>Félicitations !</strong> {{ message }}#}
+{#            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>#}
+{#        </div>#}
+{#    {% endfor %}#}
 
-    <h1 class="mb-5">Bienvenue sur la page d'administration des produits</h1>
+{#    {% for message in app.flashes('product_add_success') %}#}
+{#        <div class="alert alert-success alert-dismissible fade show" role="alert">#}
+{#            <strong>Félicitations !</strong> {{ message }}#}
+{#            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>#}
+{#        </div>#}
+{#    {% endfor %}#}
+
+    <h1 class="mb-5">Gestion des produits</h1>
 
     <a href="{{ path('app_products_add') }}" class="command btn rounded-pill mb-5">Ajouter un produit</a>
 
     <table class="table m-auto col-12 mb-5">
         <tbody class="bg-light">
-            {% for products in products %}
-                <tr class="border">
-                    <td class="d-lg-block"><img class="image_admin col-3 d-none d-lg-block" src="{{ asset("uploads/")}}{{ products.imageName }}" alt="image d'article"></td>
-                    <td><h5 class="card-title">{{ products.name}}</h5></td>
-                    <td class="col-3">Prix : {{ products.price }} €</td>
-                    <td>
-                        <div class="d-flex mt-4 mb-4 flex-column">
-                            <a href="{{ path('products_show', {id: products.id}) }}" class="command btn rounded-pill mb-3 transition-swipe" >Détails</a>
-                            <a href="{{ path('app_products_edit', {id: products.id}) }}" class="command btn rounded-pill mb-3 transition-swipe" >Modifier</a>
-                            <a href="{{ path('product_delete', { id: products.id }) }}" onclick="return confirm('Etes-vous sûr de vouloir supprimer le produit (cette action est irréversible)?')" class="btn command_del rounded-pill bg-danger transition-swipe">Supprimer</a>
-                        </div>
-                    </td>
-                </tr>
-            {% endfor %}
+        {% for products in products %}
+            <tr class="border">
+                <td class="d-lg-block"><img class="image_admin col-3 d-none d-lg-block"
+                                            src="{{ asset("uploads/") }}{{ products.imageName }}" alt="image d'article">
+                </td>
+                <td><h5 class="card-title">{{ products.name }}</h5></td>
+                <td class="col-3">Prix : {{ products.price }} €</td>
+                <td>
+                    <div class="d-flex mt-4 mb-4 flex-column">
+                        <a href="{{ path('products_show', {id: products.id}) }}"
+                           class="command btn rounded-pill mb-3 transition-swipe">Détails</a>
+                        <a href="{{ path('app_products_edit', {id: products.id}) }}"
+                           class="command btn rounded-pill mb-3 transition-swipe">Modifier</a>
+                        <a href="{{ path('product_delete', { id: products.id }) }}"
+                           onclick="return confirm('Etes-vous sûr de vouloir supprimer le produit (cette action est irréversible)?')"
+                           class="btn command_del rounded-pill bg-danger transition-swipe">Supprimer</a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 
